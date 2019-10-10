@@ -5,13 +5,14 @@ from django.contrib import auth
 # Create your models here.
 
 class Student(auth.models.User):
-    user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
+    userKey = models.ForeignKey('auth.User', on_delete=models.CASCADE,related_name='studentKey')
     profile = models.ImageField(upload_to = '../media/images', default = '../media/images/no-img.jpg')
     isInstructor = models.BooleanField(default = False)
 
 class Course(models.Model):
     courseTitle = models.TextField(max_length = 200)
-    course
+    courseDescription = models.TextField(max_length = 500)
+
 
 class ModuleTest(models.Model):
     pass
