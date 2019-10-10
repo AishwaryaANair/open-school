@@ -1,0 +1,261 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family:'Raleway', serif;
+  background-image: url("instructor.jpg");
+  background-repeat:no-repeat;
+  height:100vh;
+  background-position: center;
+  background-size:cover;
+  opacity:1;
+}
+nav{
+  margin-left: 0rem;
+  margin-top:0rem;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 0.3fr 1.5fr 0.3fr;
+  grid-template-areas: 
+  "menu logo startLogin";
+}
+.start {
+  display: grid;
+  grid-area: startLogin
+}
+.menu {
+  display: grid;
+  grid-area: menu;
+}
+.logo{
+  margin-top: 0%;
+  padding-top: 0%;
+  display: grid;
+  grid-area: logo;
+  top:0;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:transparent;
+    opacity:1;
+  }
+  
+  li {
+    display:inline-block;
+    padding: 10px;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-size:40px;
+    font-weight: bolder;
+    
+  }
+  
+  li a:hover {
+    color: rgb(182, 136, 52) ;
+    opacity:0.852;
+}
+   
+a
+{
+  text-decoration: none;
+  color: #232323;
+  transition: color 0.3s ease;
+}
+
+a:hover
+{
+  color: tomato;
+}
+
+#menuToggle
+{
+  display: inline-block;
+  position: relative;
+  top: 1rem;
+  left: 50px;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 40px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background:white;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 490px;
+  margin: -100px 0 0 -60px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 20px 0;
+  font-size: 40px;
+  font-weight: 900;
+  color:black;
+}
+
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+
+h2{
+    color: white;
+    font-size: 50px;
+    font-family: 'Raleway',serif;
+    margin-left: 200px;
+}
+
+.column {
+    border-radius: 35px;
+    border: none;
+    float: left;
+    width: 80%;
+    padding: 0 20px 20px;
+    height: 300px; /* Should be removed. Only for demonstration */
+    margin-left:10px;
+    text-align: left;
+    font-family: 'Raleway', serif;
+    font-size: 50px;
+    font-weight: bold;
+    margin-left: 200px;
+}
+
+.button1 {
+    border-radius: 35px;
+    border: none;
+    float: right;
+    width:180px;
+    height:80px;
+    background-color:rgb(9, 9, 150);
+    font-family: 'Raleway', serif;
+    font-size: 1px;
+    font-weight: bold;
+    margin-right:100px;
+    margin-bottom:50%;
+    color:white;
+}
+
+/*#button {
+    cursor:pointer;
+    width: 100%;
+    height: 80px;
+	margin-top:20px;
+	float:right;
+	height:40px;
+	padding-left:24px;
+	padding-right:24px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size:80px;
+	color:#FFF;
+	text-shadow: 0px -1px 0px #000000;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	border-top:1px solid #FFF;
+	-webkit-box-shadow: 0px 2px 14px #000;
+	box-shadow: 0px 2px 14px #000;
+	background-color: #62add6;
+	background-image:url(https://static.tumblr.com/maopbtg/ZHLmgtok7/button.png);
+	background-repeat:repeat-x;
+}
+#button:active {
+	zoom: 1;
+	filter: alpha(opacity=80);
+	opacity: 0.8;
+}
+#button:focus {
+	zoom: 1;
+	filter: alpha(opacity=80);
+	opacity: 0.8;
+}*/
