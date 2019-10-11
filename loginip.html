@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" type="text/css" href="sign-up-1.css">
+  <style>
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0 10px;
+  margin-bottom: 2.2rem;
+  display: inline-block;
+  border: 0.2rem outset #ccc;
+  box-sizing: border-box;
+  border-radius:2rem;
+
+  
+}
+
+.divide {
+    
+    height:80%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 100px;
+    overflow-x: hidden;
+    padding-top: 20px;
+    scroll-margin-top: 10px;
+  }
+
+  .logleft {
+    left: 0;
+    background-color:white;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    margin-left: 25px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  
+
+  }
+
+  .logright {
+    right: 0;
+    background-image:url("logincode.jpg");
+    background-size:cover;
+    background-repeat: no-repeat; 
+    margin-right:25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    object-fit:cover;
+    
+
+  }
+
+
+button {
+  background-color:blue;
+  color:black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  width:50%;
+  cursor: pointer;
+  border: 0.2rem outset #ccc;
+  border-radius:2rem;
+  margin-left:10rem;
+}
+
+button:hover {
+  opacity: 0.8;
+  background-color:green;
+}
+
+.container-form {
+  padding: 16px;
+  color:black;
+  font-size: 1.5rem;
+  margin-right:8rem;
+  text-align: left;
+  font-weight: bold;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width:25%;
+  padding: 20px 18px;
+  margin-left:1rem;
+
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+      
+
+
+</head>
+<body>
+        <nav> 
+                            
+                <ul class = 'logo'>
+                <li ><a href="home.html">&lt;bro&gt;code </a></li>
+                </ul>
+                  <div class = "menu" id="menuToggle">
+                    
+                    <input type="checkbox"></input>
+              
+                    <span></span>
+                    <span></span>
+                    <span></span>
+              
+                    <ul id="menu">
+                      <a href="#"><li>sign up</li></a><br><br>
+                      <a href="#"><li>login</li></a><br><br>
+                      <a href="#"><li>courses</li></a><br><br>
+                      <a href="#"><li>help</li></a><br><br>
+                      <a href="#"><li> about us</li></a><br><br>
+                      <a href="#"><li> contact us</li></a><br><br><br>
+                    <br><br><br>
+                    </ul>
+                  </div>
+                </nav>
+
+   
+     
+<div class="divide logleft">
+                    <h1 style="text-align: left">LOG IN</h1>
+        
+                    <form class="login-form" action="login.php" method="GET">
+                        
+                     <div class="container-form">
+                        <label  for="user">Username:</label>
+                        <input id="username" name="username" type="text" >
+                      
+                        <label  for="pass">Password:</label>
+                        <input id="password" name="password" type="password"  data-type="password">
+
+                        <button type="submit">Login</button>
+                        <br>
+                        <label>
+                          <input type="checkbox" checked="checked" name="remember"> Remember me</label>
+                    </div>
+
+                    <div class="container-form" style="background-color:#f1f1f1">
+                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                            <span class="psw" style="font-size:1rem" >Forgot <a href="#">password?</a></span>
+                    </div>
+                 </form>
+  
+
+</div>
+
+<div class="divide logright" >
+  <div class="centered">
+    
+    <p>  </p>
+  </div>
+</div>
+     
+</body>
+</html> 
+
+
+<script>
+$('.message a').click(function(){
+   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+});
+</script>
+</body>
+</html>
