@@ -1,6 +1,6 @@
 *{
-   margin-0;
-   padding-0;
+   margin:0;
+   padding:0;
 }
 
 .head{
@@ -64,3 +64,4 @@ h1{
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}

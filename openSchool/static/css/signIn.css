@@ -99,8 +99,8 @@ nav{
   #menuToggle input
   {
     display: block;
-    width: 2rem;
-    height: 1rem;
+    width: 3rem;
+    height: 2rem;
     position: absolute;
     top: -7px;
     left: -5px;
@@ -169,7 +169,7 @@ nav{
   #menu
   {
     position: absolute;
-    width: 490px;
+    width: 400px;
     margin: -100px 0 0 -60px;
     padding: 50px;
     padding-top: 125px;
@@ -188,7 +188,7 @@ nav{
   #menu li
   {
     padding: 20px 0;
-    font-size: 40px;
+    font-size: 1.8rem;
     font-weight: bold;
     color:black;
     font-family: 'Raleway', serif;
@@ -217,7 +217,7 @@ nav{
     font-family: "Roboto", sans-serif;
     outline: 0;
     background: #f2f2f2;
-    width: 100%;
+    width: 90%;
     position:relative;
     border: 0;
     padding: 15px;
@@ -335,7 +335,7 @@ nav{
     margin-right:25px;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
-    width:45%
+    width:50%
 
   }
   

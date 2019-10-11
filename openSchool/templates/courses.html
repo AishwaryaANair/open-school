@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,12 +6,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  <link rel="stylesheet" type="text/css" href="sign-up-1.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/sign-up-1.css' %}">
   <style>
-        body {
+  body {
   font-family:'Raleway', serif;
   background-color: rgb(29, 29, 105);
-  background:url(color-cont.jpg)no-repeat center;
+  background:url('../imgs/color-cont.jpg')no-repeat center;
   background-repeat:no-repeat;
   height:100vh;
   background-position: center;
