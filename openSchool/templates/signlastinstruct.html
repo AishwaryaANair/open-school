@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" type="text/css" href="brocode.css">
+  <style>
+.divide {
+    
+    height:80%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 100px;
+    overflow-x: hidden;
+    padding-top: 20px;
+    scroll-margin-top: 10px;
+  }
+
+.logleft {
+    left: 0;
+    background-color:white;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    margin-left: 25px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  
+
+ }
+
+
+.logright {
+    right: 0;
+    background-image:url("sign.jpg");
+    background-size:cover;
+    background-repeat: no-repeat; 
+    margin-right:25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    object-fit:cover;
+}
+    
+h2{
+  margin-top:0;
+}
+  
+
+</style>
+</head>
+<body>
+        <nav> 
+                            
+                <ul class = 'logo'>
+                <li ><a href="home.html">&lt;bro&gt;code </a></li>
+                </ul>
+                  <div class = "menu" id="menuToggle">
+                    
+                    <input type="checkbox"></input>
+              
+                    <span></span>
+                    <span></span>
+                    <span></span>
+              
+                    <ul id="menu">
+                      <a href="#"><li>sign up</li></a><br><br>
+                      <a href="#"><li>login</li></a><br><br>
+                      <a href="#"><li>courses</li></a><br><br>
+                      <a href="#"><li>help</li></a><br><br>
+                      <a href="#"><li> about us</li></a><br><br>
+                      <a href="#"><li> contact us</li></a><br><br><br>
+                    <br><br><br>
+                    </ul>
+                  </div>
+                </nav>
+
+   
+<div class="divide logleft">
+    <h2 style="text-align:left">LAST STEP(WE PROMISE!)</h2>
+    <p style="text-align: left">First Name</p>
+    <form class="register-form">
+    <input type="text" />
+    <p style="text-align: left">Last Name:</p>
+    <input type="text" />
+    <p style="text-align: left">Qualification:</p>
+    <input type="text" />
+    <button>next</button>
+  </form>
+ 
+  
+
+</div>
+
+<div class="divide logright">
+  <div class="centered">
+    
+    <p>  </p>
+  </div>
+</div>
+     
+</body>
+</html> 
+
+
+<script>
+$('.message a').click(function(){
+   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+});
+</script>
+</body>
+</html>
