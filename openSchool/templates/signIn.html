@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,34 +6,33 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  <link rel="stylesheet" type="text/css" href="sign up-1 (1).css">
-
+  <link rel="stylesheet" type="text/css" href="{% static 'css/signIn.css' %}">
+  <title>&lt;bro&gt;code</title>
 </head>
 <body>
         <nav> 
-                            
-                <ul class = 'logo'>
-                <li ><a href="home.html">&lt;bro&gt;code </a></li>
-                </ul>
-                  <div class = "menu" id="menuToggle">
-                    
-                    <input type="checkbox">
+            <ul class = 'logo'>
+            <li><a href="{% url 'home' %}">&lt;bro&gt;code </a></li>
+            </ul>
+            <div class = "menu" id="menuToggle">
               
-                    <span></span>
-                    <span></span>
-                    <span></span>
-              
-                    <ul id="menu">
-                      <a href="#"><li>sign up</li></a><br><br>
-                      <a href="#"><li>login</li></a><br><br>
-                      <a href="#"><li>courses</li></a><br><br>
-                      <a href="#"><li>help</li></a><br><br>
-                      <a href="#"><li> about us</li></a><br><br>
-                      <a href="#"><li> contact us</li></a><br><br><br>
-                    <br><br><br>
-                    </ul>
-                  </div>
-                </nav>
+              <input type="checkbox">
+        
+              <span></span>
+              <span></span>
+              <span></span>
+        
+              <ul id="menu">
+                <a href="#"><li>sign up</li></a><br>
+                <a href="#"><li>login</li></a><br>
+                <a href="#"><li>courses</li></a><br>
+                <a href="#"><li>help</li></a><br>
+                <a href="#"><li> about us</li></a><br>
+                <a href="#"><li> contact us</li></a><br>
+              <br><br><br>
+              </ul>
+            </div>
+          </nav>
 
    
      
@@ -56,14 +56,5 @@
     <p>  </p>
   </div>
 </div>
-<script>
-  $('.message a').click(function(){
-     $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-  });
-  </script>
 </body>
-
-
-
-
 </html>

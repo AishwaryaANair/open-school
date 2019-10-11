@@ -1,21 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
 <title>&lt;bro&gt;code</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="home.css"  type="text/css">
+<link rel="stylesheet" href="{% static 'css/home.css' %}"  type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 </head>
 <body>
 <nav> 
 
   <ul class = 'start'>
-    <li><a href="login.html">join</a></li>
-            
+    <li><a href="{% url 'signIn' %}">join</a></li>
   </ul>
 
   <ul class = 'logo'>
-  <li ><a href="home.html">&lt;bro&gt;code </a></li>
+  <li ><a href="#">&lt;bro&gt;code </a></li>
   </ul>
     <div class = "menu" id="menuToggle">
       
@@ -26,16 +26,21 @@
       <span></span>
 
       <ul id="menu">
-        <a href="#"><li>sign up</li></a><br><br>
-        <a href="#"><li>login</li></a><br><br>
-        <a href="#"><li>courses</li></a><br><br>
-        <a href="#"><li>help</li></a><br><br>
-        <a href="#"><li> about us</li></a><br><br>
-        <a href="#"><li> contact us</li></a><br><br><br>
+        <a href=""><li>sign up</li></a><br>
+        <a href="#"><li>login</li></a><br>
+        <a href="#"><li>courses</li></a><br>
+        <a href="#"><li>help</li></a><br>
+        <a href="#"><li> about us</li></a><br>
+        <a href="#"><li> contact us</li></a><br>
       <br><br><br>
       </ul>
     </div>
   </nav>
-
-    </body>
-    </html>
+  <h1>
+    <a href="" class="typewrite" data-period="2000" data-type='[ "Hi, Im Si.", "I am Creative.", "I Love Design.", "I Love to Develop." ]'>
+      <span class="wrap"></span>
+    </a>
+  </h1>
+<script src = {% static 'js/typewrite.js' %}></script>
+</body>
+</html>
