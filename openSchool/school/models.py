@@ -12,18 +12,20 @@ class ExtendUser(auth.models.User):
 class Course(models.Model):
     courseTitle = models.TextField(max_length = 200)
     courseDescription = models.TextField(max_length = 500)
-    
+    hours = models.IntegerField(default = 200)
+    creator = models.ForeignKey('auth.User',on_delete=models.CASCADE,related_name='UserCreator')
+    userMap = models.ManyToManyField('auth.User',related_name='LearnersEnrolled')
+
+
 class Weeks(models.Model):
-    pass
+    weekTitle = models.TextField(max_length = 100)
+    courseDet = models.ForeignKey('school.Course',on_delete=models.CASCADE)
+    weekVideo = models.FileField(upload_to='videos/', null=True, verbose_name="")
+    #weekQuiz = models.ForeignKey('school.ModuleTest',on_delete=models.CASCADE)
 
-
-
-
-class ModuleTest(models.Model):
-    pass
-
-class CourseQuiz(models.Model):
-    pass
+'''class ModuleTest(models.Model):
+    
 
 class Results(models.Model):
     pass
+'''

@@ -1,78 +1,84 @@
+html {
+    width: 100%;
+    margin: 0rem;
+    padding: 0rem;
+    height: 400vh;
+}
 * {
-  box-sizing: border-box;
-}
-body {
-  font-family:'Raleway', serif;
-  background-color: rgb(29, 29, 105);
-  background-image: linear-gradient(blue,skyblue);
-  height:100vh;
-  background-position: center;
-  background-size:cover;
-  opacity:1;
-}
+    box-sizing: border-box;
+  }
+  body {
+    font-family:'Raleway', serif;
+    background-image: linear-gradient(rgba(255, 0, 0, 0.61),yellow);
+    height:400vh;
+    background-position: center;
+    background-size:cover;
+    opacity:1;
+    margin: 0rem;
+    padding: 0rem;
+    overflow-x: hidden;
+  }
+  
+  
+  .section{
+   width:100%;
+   height:100vh;
+   
+  
+  }
+  #home{
+    background-image: url("../imgs/splash.jpg");  
+    background-position: center;
+    background-size:cover;
+    opacity:1;
+    height:100vh;
+  
+  }
+  
+  #join{
+    background-image: url("../imgs/directToSignIn.jpg");  
+    background-position: center;
+    background-size:cover;
+    opacity:1;
+    height:110vh;
+    width: 100%;
+  }
+  
+  #course{
+    background-image: url("../imgs/color-cont.jpg");  
+    background-position: center;
+    background-size:cover;
+    opacity:1;
+    height:100vh;
+    padding: 2rem;
+  }
+  
+  #aboutip{
+  
+    background-image: url("../imgs/aboutip.jpg");  
+    background-position: center;
+    background-size:cover;
+    opacity:1;
+    height:100vh;
+  }
+  h2{
+    font-size:2.5rem;
+    text-align:left;
+    margin: 1rem;
+    padding: 1rem;
+  }
+  #help{
+  
+    background-image: url("../imgs/help.jpg");  
+    background-position: center;
+    background-size:cover;
+    opacity:1;
+    height:100vh;
+  }
 
-
-.section{
- width:100%;
- height:100vh;
- 
-
-}
-#home{
-  background-image: url("splash.jpg");  
-  background-position: center;
-  background-size:cover;
-  opacity:1;
-  height:100vh;
-
-}
-
-#join{
-  background-image: url("join2.jpg");  
-  background-position: center;
-  background-size:cover;
-  opacity:1;
-  height:100vh;
-}
-
-#course{
-  background-image: url("color-cont.jpg");  
-  background-position: center;
-  background-size:cover;
-  opacity:1;
-  height:100vh;
-
-}
-
-#aboutip{
-
-  background-image: url("about.jpg");  
-  background-position: center;
-  background-size:cover;
-  opacity:1;
-  height:100vh;
-}
-h2{
-  font-size:2.5rem;
-  text-align:center;
-}
-#help{
-
-  background-image: url("help.jpg");  
-  background-position: center;
-  background-size:cover;
-  opacity:1;
-  height:100vh;
-}
-
-
-.button2 {
-     
-
+  .button1 {
+    border: 0;
     background-color:white;
-    border-width:0.25rem;
-    border-color:gray;
-    border-style: outset;
     color:black;
     padding: 22px;
     text-align: center;
@@ -83,114 +89,123 @@ h2{
     width:25rem;
     height:5.2rem;
     border-radius:1.65rem;
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-left:16rem;
     margin-top:17rem;
     -webkit-transition: width 3s, height 4s; /* For Safari 3.1 to 6.0 */
-      transition: width 1s, height 3s;
+    transition: width 1s, height 3s;
+    font-family: 'Raleway',sans-serif;
   }
- 
-  .button2:hover {
-   
-   width: 250px;
-   height:100px;
-}
-
-  .button1 {
-     
-    border: none;
+  .button2 {
+    background-color:white;
     color:black;
-    padding: 20px;
+    padding: 22px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 2rem;
+    font-size: 3rem;
     cursor: pointer;
-    width:15rem;
-    height:5rem;
-    border-radius:0.5rem;
-    
-     -webkit-transition: width 3s, height 4s; /* For Safari 3.1 to 6.0 */
-      transition: width 1s, height 3s;
+    width:25rem;
+    height:5.2rem;
+    border-radius:1.65rem;
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-left:16rem;
+    margin-top:17rem;
+    -webkit-transition: width 3s, height 4s; /* For Safari 3.1 to 6.0 */
+    transition: width 1s, height 3s;
+    font-family: 'Raleway',sans-serif;
+    border: 0;
   }
- 
-  .button1:hover {
-   background-color:grey;
-   width: 190px;
-   height:120px;
-}
-  .flex-container {
-      display: flex;
-      color:white;
-      
-    }
-    
-    .flex-container > div {
-      background-color:white;
-      color:black;
-      width: 450px;
-      height:500px;
-      margin-left:4rem;
-      text-align: center;
-      line-height:75px;
-      font-size: 30px;
-      border-radius:2rem;
-    }
-    .flex-about{
-      display: flex;
-      color:white;
-    }
- 
-    .flex-about > div {
-      background-color:white;
-      color:black;
-      width: 1400px;
-      height:500px;
-      margin-left:4rem;
-      text-align: center;
-      line-height:75px;
-      font-size: 30px;
-      border-radius:2rem;
-    }
-    .button1 {
-       
-      border: none;
-      background-color:white;
-      border-width:0.25rem;
-      border-color:gray;
-      border-style: outset;
-      color:black;
-      padding: 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 2rem;
-      cursor: pointer;
-      width:15rem;
-      height:5rem;
-      border-radius:1.3rem;
+  .button3 {
+    float: left;
+    border: 0;
+    background-color:white;
+    color:black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width:93%;
+    height:4.6rem;
+    border-radius:1.65rem;
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 0.6rem;
+    -webkit-transition: width 3s, height 4s; /* For Safari 3.1 to 6.0 */
+    transition: width 1s, height 3s;
+    font-family: 'Raleway',sans-serif;
+  }
+    .button2:hover {
+     
+     width: 250px;
+     height:100px;
+  }
   
-    }
-
-h1 {
-  font-family:'Raleway', serif;
-  font-weight:bolder;
-  font-size:3rem;
-}
-p{
-  font-family:'Raleway', serif;
-  font-weight:bolder;
-  font-size:25px;
-}
-nav{
+   
+    .button1:hover {
+     background-color:grey;
+     width: 190px;
+     height:120px;
+  }
+    .flex-container {
+        display: flex;
+        color:white;
+        
+      }
+      
+      .flex-container > div {
+        background-color:white;
+        color:black;
+        width: 23%;
+        height:500px;
+        margin-left:1rem;
+        text-align: center;
+        line-height:75px;
+        font-size: 30px;
+        border-radius:2rem;
+      }
+      .flex-about{
+        display: flex;
+        color:white;
+      }
+   
+      .flex-about > div {
+        background-color:white;
+        color:black;
+        width: 100%;
+        height:400px;
+        margin:2rem;
+        text-align: center;
+        line-height:75px;
+        font-size: 30px;
+        border-radius:2rem;
+      }
+  
+  h1 {
+    font-family:'Raleway', serif;
+    font-weight:bolder;
+    font-size:3rem;
+    color:white;
+    margin: 0rem 2rem 2rem 2rem;
+  }
+  p{
+    font-family:'Raleway', serif;
+    font-weight:bolder;
+    font-size:25px;
+  }
+  nav{
     margin-left: 0rem;
     margin-top:0rem;
     display: grid;
-    grid-template-rows: 1fr;
+    grid-template-rows: 0.5fr;
     grid-template-columns: 0.3fr 1.5fr 0.3fr;
     grid-template-areas: 
     "menu logo startLogin";
   }
-  
+  .start {
+    display: grid;
+    grid-area: startLogin
+  }
   .menu {
     display: grid;
     grid-area: menu;
@@ -213,17 +228,17 @@ nav{
     
     li {
       display:inline-block;
-      padding: 10px;
+      padding:0rem 0.2rem;
     }
     
     li a {
       display: block;
       color: white;
       text-align: center;
-      padding: 10px;
+      padding: 0rem;
       text-decoration: none;
-      font-size:35px;
-      font-weight:normal;
+      font-size:1.4rem;
+      font-weight: bolder;
       
     }
     
@@ -248,9 +263,9 @@ nav{
   {
     display: inline-block;
     position: relative;
-    top: 1rem;
-    left: 50px;
-    z-index:1;
+    top: 0.4rem;
+    left: 0.6rem;
+    z-index: 1;
     -webkit-user-select: none;
     user-select: none;
   }
@@ -258,11 +273,11 @@ nav{
   #menuToggle input
   {
     display: block;
-    width: 45px;
-    height: 32px;
+    width: 30px;
+    height: 1.2rem;
     position: absolute;
-    top: -7px;
-    left: -5px;
+    top: 0rem;
+    left: 0rem;
     cursor: pointer;
     opacity: 0; /* hide this */
     z-index: 2; /* and place it over the hamburger */
@@ -328,7 +343,7 @@ nav{
   #menu
   {
     position: absolute;
-    width: 490px;
+    width: 400px;
     margin: -100px 0 0 -60px;
     padding: 50px;
     padding-top: 125px;
@@ -340,180 +355,188 @@ nav{
     
     transform-origin: 0% 0%;
     transform: translate(-100%, 0);
+    
     transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
   }
   
   #menu li
   {
-    padding: 20px 0;
-    font-size: 40px;
-    font-weight: bold;
+    padding: 20px 2rem;
+    font-size: 1.5rem;
+    font-weight: 900;
     color:black;
-    font-family: 'Raleway', serif;
   }
   
   #menuToggle input:checked ~ ul
   {
     transform: none;
   }
-
-
-  .form {
-    position: relative;
-    z-index: 1;
-    background: #FFFFFF;
-    max-width: 100%;
-    margin: 0 auto 100px;
-    padding: 45px;
+  h3, .typewrite {
+    font-family:'Raleway', serif;
+    font-size: 4rem;
+    color: black;
     text-align: center;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    border-radius: 25px;
-    height: 580px;
-  
-  }
-  .register-form input {
-    font-family: "Roboto", sans-serif;
-    outline: 0;
-    background: #f2f2f2;
-    width: 500px;
-    position:relative;
-    border: 0;
-    padding: 15px;
-    box-sizing: border-box;
-    font-size: 30px;
-    border-radius: 30px;
-    box-shadow:2px 5px;
-    margin-left: 0%
-  }
-  .register-form button {
-    margin-left: 200px;
-    font-family: "Raleway", sans-serif;
-    outline: 0;
-    background:rgb(4, 4, 87);
-    width: 30%;
-    border: 0;
-    padding: 15px;
-    color: #FFFFFF;
-    font-size: 25px;
-    font-weight:bolder;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
-    cursor: pointer;
-    border-radius: 30px;
-    float:left;
-    box-shadow: 2px 5px #afaeae;
-
-  }
-  .form button:hover,.form button:active,.form button:focus {
-    background: rgb(75, 82, 76);
-  }
-  .form .message {
-    margin: 15px 0 0;
-    color: #b3b3b3;
-    font-size: 12px;
-  }
-  .form .message a {
-    color: #4CAF50;
-    text-decoration: none;
-  }
-  .form .register-form {
-    display: none;
-  }
-  .container {
-    position: relative;
-    z-index: 1;
-    max-width: 300px;
-    margin: 0 auto;
-    border-radius: 25px;
-  
-  }
-  .container:before, .container:after {
-    content: "";
-    display: block;
-    clear: both;
-  }
-  .container .info {
-    margin: 50px auto;
-    text-align: center;
-  }
-  .container .info h1 {
-    margin: 0 0 15px;
-    padding: 0;
-    font-size: 36px;
-    font-weight: 300;
-    color: #1a1a1a;
-  }
-  .container .info span {
-    color: #4d4d4d;
-    font-size: 12px;
-  }
-  .container .info span a {
-    color: #000000;
-    text-decoration: none;
-  }
-  .container .info span .fa {
-    color: #EF3B3A;
-  }
- 
-
-  .split {
-    
-    height:80%;
-    width: 50%;
-    position: fixed;
-    z-index: 1;
-    top: 100px;
-    overflow-x: hidden;
-    padding-top: 20px;
-    scroll-margin-top: 10px;
-  }
-  .right1
-
-  {
-    right: 0;
-    background-image:url("loginip.jpg");
-    background-size: cover;
-    background-repeat: no-repeat; 
-    margin-right:25px;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-
-  }
-  
-  .left {
-    left: 0;
-    background-color:white;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    margin-left: 25px;
-    padding: 45px;
-    text-align: center;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  
-
-  }
-  
-  .right {
-    right: 0;
-    background-image:url("laptop.jpg");
-    background-size: cover;
-    background-repeat: no-repeat; 
-    margin-right:25px;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-
-  }
-  
-  
-  .centered {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    top: 80%;
+    left: 10%;
+    font-weight: bolder;
+    
   }
+    .form {
+      position: relative;
+      z-index: 1;
+      background: #FFFFFF;
+      max-width: 100%;
+      margin: 0 auto 100px;
+      padding: 45px;
+      text-align: center;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+      border-radius: 25px;
+      height: 580px;
+    
+    }
+    .register-form input {
+      font-family: "Raleway", sans-serif;
+      outline: 0;
+      background: #f2f2f2;
+      width: 500px;
+      position:relative;
+      border: 0;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 30px;
+      border-radius: 30px;
+      box-shadow:2px 5px;
+      margin-left: 0%
+    }
+    .register-form button {
+      margin-left: 200px;
+      font-family: "Raleway", sans-serif;
+      outline: 0;
+      background:rgb(4, 4, 87);
+      width: 30%;
+      border: 0;
+      padding: 15px;
+      color: #FFFFFF;
+      font-size: 25px;
+      font-weight:bolder;
+      -webkit-transition: all 0.3 ease;
+      transition: all 0.3 ease;
+      cursor: pointer;
+      border-radius: 30px;
+      float:left;
+      box-shadow: 2px 5px #afaeae;
   
-  .centered img {
-    width: 150px;
-    border-radius: 50%;
-  }
+    }
+    .form button:hover,.form button:active,.form button:focus {
+      background: rgb(75, 82, 76);
+    }
+    .form .message {
+      margin: 15px 0 0;
+      color: #b3b3b3;
+      font-size: 12px;
+    }
+    .form .message a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+    .form .register-form {
+      display: none;
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 300px;
+      margin: 0 auto;
+      border-radius: 25px;
+    
+    }
+    .container:before, .container:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .container .info {
+      margin: 50px auto;
+      text-align: center;
+    }
+    .container .info h1 {
+      margin: 0 0 15px;
+      padding: 0;
+      font-size: 36px;
+      font-weight: 300;
+      color: #1a1a1a;
+    }
+    .container .info span {
+      color: #4d4d4d;
+      font-size: 12px;
+    }
+    .container .info span a {
+      color: #000000;
+      text-decoration: none;
+    }
+    .container .info span .fa {
+      color: #EF3B3A;
+    }
+   
+  
+    .split {
+      
+      height:80%;
+      width: 50%;
+      position: fixed;
+      z-index: 1;
+      top: 100px;
+      overflow-x: hidden;
+      padding-top: 20px;
+      scroll-margin-top: 10px;
+    }
+    .right1
+    {
+      right: 0;
+      background-image:url("../imgs/loginip.jpg");
+      background-size: cover;
+      background-repeat: no-repeat; 
+      margin-right:25px;
+      border-top-right-radius: 25px;
+      border-bottom-right-radius: 25px;
+  
+    }
+    
+    .left {
+      left: 0;
+      background-color:white;
+      border-top-left-radius: 25px;
+      border-bottom-left-radius: 25px;
+      margin-left: 25px;
+      padding: 45px;
+      text-align: center;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    
+  
+    }
+    
+    .right {
+      right: 0;
+      background-image:url("../imgs/laptop.jpg");
+      background-size: cover;
+      background-repeat: no-repeat; 
+      margin-right:25px;
+      border-top-right-radius: 25px;
+      border-bottom-right-radius: 25px;
+  
+    }
+    
+    
+    .centered {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    
+    .centered img {
+      width: 150px;
+      border-radius: 50%;
+    }

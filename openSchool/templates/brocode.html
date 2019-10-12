@@ -1,112 +1,92 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
 <title>&lt;bro&gt;code</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="brocode.css"  type="text/css">
+<link rel="stylesheet" href="{% static 'css/brocode.css' %}"  type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 </head>
 <body>
-<section id="home">
-<nav> 
-  <ul class = 'start'>
-    <li><a href="loginip.html">join</a></li>
-            
-  </ul>
+  <section id="home">
+  <nav> 
+    <ul class = 'start'>
+      <li><a href="#join">join</a></li>
+              
+    </ul>
 
-  <ul class = 'logo'>
-  <li ><a href="home.html">&lt;bro&gt;code </a></li>
-  </ul>
-    <div class = "menu" id="menuToggle">
-      
-      <input type="checkbox"></input>
+    <ul class = 'logo'>
+    <li ><a href="#">&lt;bro&gt;code </a></li>
+    </ul>
+      <div class = "menu" id="menuToggle">
+        
+        <input type="checkbox"></input>
 
-      <span></span>
-      <span></span>
-      <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
 
-      <ul id="menu">
-        <a href="#"><li>sign up</li></a><br><br>
-        <a href="#"><li>login</li></a><br><br>
-        <a href="#"><li>courses</li></a><br><br>
-        <a href="#"><li>help</li></a><br><br>
-        <a href="#"><li> about us</li></a><br><br>
-        <a href="#"><li> contact us</li></a><br><br><br>
-      <br><br><br>
-      </ul>
+        <ul id="menu">
+          <a href="#join"><li>sign up</li></a><br><br>
+          <a href="{% url 'login' %}"><li>login</li></a><br><br>
+          <a href="#course"><li>courses</li></a><br><br>
+          <a href="#help"><li>help</li></a><br><br>
+          <a href="#about"><li> about us</li></a><br><br>
+          <a href="#"><li> contact us</li></a><br><br><br>
+        <br><br><br>
+        </ul>
+        </div>
+      </nav>
+      <h1>
+      </h1>
+    </section>
+    <section id="join">
+          <a href = "{% url 'signIn' %}" class="button button1">learner</a>
+          <a href = "{% url 'signIn' %}"class="button button2">instructor</a>
+
+    </section>
+
+    <section id="course">
+          <h1 >Our top picks </h1>
+          <div class="flex-container">
+                  <div>Course<a href = "#join" class="button button3">Learn More</a></div>
+                  <div>Courses<a href = "#join" class="button button3">Learn More</a> </div>
+                  <div>Course<a href = "#join" class="button button3">Learn More</a> </div>
+                  <div>Course<a href = "#join" class="button button3">Learn More</a> </div>
+          </div>
       </div>
-    </nav>
-    <h1>
-    </h1>
-  </section>
-   <br>
-   <br>
-  <section id="join">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1 style="color:white"></h1>
-         <br><br><br><br>
-        <button onclick="myFunction()" class="button button2">learner</button>
-        <button class="button button2">Instructor</button>
-        <script>
-                function myFunction() {
-                document.getElementById("demo").innerHTML = "";
-                 }
-                </script>
+    </section>
+  <section id="aboutip">
+          <br>
+          <br>
+          <h2 style="color:white" >About us</h2> 
+          <div class="flex-about">
+              <div>
+
+              </div>
+          </div>
 
   </section>
-  <br>
-  <br>
-  <section id="course">
-      <br><br><br>
-        <h1 style="color:white" >Our top picks </h1>
-        <div class="flex-container">
-                <div>Course<br><br><br><br><br><button onclick="myFunction()" class="button button1">Learn More</button> </div>
-                <div>Courses<br><br><br><br><br><button class="button button1">Learn More</button> </div>
-                <div>Course<br><br><br><br><br><button class="button button1">Learn More</button> </div>
-                <div>Course<br><br><br><br><br><button class="button button1">Learn More</button> </div>
-        </div>
-    </div>
-   </section>
-   <br>
 
-<section id="aboutip">
-        <br>
-        <br>
-        <h2 style="color:white" >About us</h2> 
-        <div class="flex-about">
-            <div>
+  <section id="help">
+          <br>
+          <br>
+          <h2 style="color:white" >Help</h2> 
+          <div class="flex-about">
+              <div>
+            
+              </div>
+          </div>
 
-            </div>
-        </div>
+  </section>
+  <section  id="footer">
+          <br>
+          <br>
+          <h2 style="color:white" >&lt;bro&gt;code</h2> 
+          <div class="flex-about">
+                        
+          </div>
 
-</section>
-<br>
-<section id="help">
-        <br>
-        <br>
-        <h2 style="color:white" >Help</h2> 
-        <div class="flex-about">
-            <div>
-          
-            </div>
-        </div>
-
-</section>
-<section  id="footer">
-        <br>
-        <br>
-        <h2 style="color:white" >&lt;bro&gt;code</h2> 
-        <div class="flex-about">
-                      
-        </div>
-
-</section>
-
-
-    </body>
-    </html>
+  </section>
+  </body>
+</html>
