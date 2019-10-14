@@ -58,7 +58,7 @@
       text-align: center;
       padding: 10px;
       text-decoration: none;
-      font-size:35px;
+      font-size:1.2rem;
       font-weight: bolder;
       
     }
@@ -95,7 +95,7 @@
   #menuToggle input
   {
     display: block;
-    width: 40px;
+    width: 1.6rem;
     height: 32px;
     position: absolute;
     top: -7px;
@@ -112,8 +112,8 @@
   #menuToggle span
   {
     display: block;
-    width: 40px;
-    height: 4px;
+    width: 30px;
+    height: 3px;
     margin-bottom: 5px;
     position: relative;
     background:white;
@@ -165,7 +165,7 @@
   #menu
   {
     position: absolute;
-    width: 490px;
+    width: 350px;
     margin: -100px 0 0 -60px;
     padding: 50px;
     padding-top: 125px;
@@ -184,7 +184,7 @@
   #menu li
   {
     padding: 20px 0;
-    font-size: 40px;
+    font-size: 1.3rem;
     font-weight: 900;
     color:black;
   }
@@ -200,7 +200,7 @@
   
   h2{
       color: white;
-      font-size: 35px;
+      font-size: 1.6rem;
       font-family: 'Raleway',serif;
       margin-left: 200px;
   }
@@ -211,11 +211,11 @@
       float: left;
       width: 80%;
       padding: 0 20px 20px;
-      height: 300px; /* Should be removed. Only for demonstration */
+      height: 200px; /* Should be removed. Only for demonstration */
       margin-left:10px;
       text-align: left;
       font-family: 'Raleway', serif;
-      font-size: 35px;
+      font-size: 1.6rem;
       font-weight: bold;
       margin-left: 200px;
       position: relative;
@@ -227,11 +227,11 @@
     float: left;
     width: 80%;
     padding: 0 20px 20px;
-    height: 300px; /* Should be removed. Only for demonstration */
+    height: 200px; /* Should be removed. Only for demonstration */
     margin-left:10px;
     text-align: left;
     font-family: 'Raleway', serif;
-    font-size: 35px;
+    font-size: 1.6rem;
     font-weight: bold;
     margin-left: 200px;
     position: relative;
@@ -242,20 +242,20 @@
   .button1 {
       border-radius: 35px;
       border: none;
-      width:290px;
-      height:70px;
+      width:120px;
+      height:30px;
       background-color:rgb(9, 9, 150);
       font-family: 'Raleway', serif;
-      font-size: 35px;
+      font-size: 1.3rem;
       font-weight: bold;
       margin-right:20px;
       margin-bottom:50%;
       color:white;
       position :absolute;
-      top: 180px;
-      right: 10px;
+      top: 120px;
+      right: 100px;
       text-align: center;
-      padding-top: 15px;
+      padding-top: 5px;
       text-decoration: none;
       display: inline-block;
       cursor: pointer;
@@ -276,20 +276,20 @@
   .button2{
     border-radius: 35px;
     border: none;
-    width:290px;
-    height:70px;
+    width:120px;
+    height:30px;
     background-color:rgb(9, 9, 150);
     font-family: 'Raleway', serif;
-    font-size: 35px;
+    font-size: 1.3rem;
     font-weight: bold;
     margin-right:20px;
     margin-bottom:50%;
     color:white;
     position :absolute;
-    top: 180px;
-    right: 10px;
+    top: 120px;
+    right: 100px;
     text-align: center;
-    padding-top: 15px;
+    padding-top: 5px;
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
@@ -309,7 +309,7 @@
     background-color: #ddd;
     position:absolute;
     margin-left: 280px;
-    top:130px;
+    top:85px;
   }
   
 
