@@ -3,7 +3,7 @@
   }
   body {
     font-family:'Raleway', serif;
-    background-image: url("../imgs/texture.jpg");
+    background-image: url("texture.jpg");
     background-repeat:no-repeat;
     height:100vh;
     background-position: center;
@@ -20,6 +20,7 @@
     grid-template-columns: 0.3fr 1.5fr 0.3fr;
     grid-template-areas: 
     "menu logo startLogin";
+
     
   }
   .start {
@@ -57,7 +58,7 @@
       text-align: center;
       padding: 10px;
       text-decoration: none;
-      font-size:40px;
+      font-size:35px;
       font-weight: bolder;
       
     }
@@ -88,6 +89,7 @@
     z-index: 1;
     -webkit-user-select: none;
     user-select: none;
+ 
   }
   
   #menuToggle input
@@ -198,7 +200,7 @@
   
   h2{
       color: white;
-      font-size: 50px;
+      font-size: 35px;
       font-family: 'Raleway',serif;
       margin-left: 200px;
   }
@@ -213,7 +215,7 @@
       margin-left:10px;
       text-align: left;
       font-family: 'Raleway', serif;
-      font-size: 50px;
+      font-size: 35px;
       font-weight: bold;
       margin-left: 200px;
       position: relative;
@@ -229,7 +231,7 @@
     margin-left:10px;
     text-align: left;
     font-family: 'Raleway', serif;
-    font-size: 50px;
+    font-size: 35px;
     font-weight: bold;
     margin-left: 200px;
     position: relative;
@@ -241,12 +243,12 @@
       border-radius: 35px;
       border: none;
       width:290px;
-      height:80px;
+      height:70px;
       background-color:rgb(9, 9, 150);
       font-family: 'Raleway', serif;
-      font-size: 40px;
+      font-size: 35px;
       font-weight: bold;
-      margin-right:100px;
+      margin-right:20px;
       margin-bottom:50%;
       color:white;
       position :absolute;
@@ -275,12 +277,12 @@
     border-radius: 35px;
     border: none;
     width:290px;
-    height:80px;
+    height:70px;
     background-color:rgb(9, 9, 150);
     font-family: 'Raleway', serif;
-    font-size: 40px;
+    font-size: 35px;
     font-weight: bold;
-    margin-right:100px;
+    margin-right:20px;
     margin-bottom:50%;
     color:white;
     position :absolute;
@@ -307,7 +309,7 @@
     background-color: #ddd;
     position:absolute;
     margin-left: 280px;
-    top:185px;
+    top:130px;
   }
   
 
@@ -321,5 +323,5 @@
   }
   
   .course1 {width: 100%; background-color: rgb(16, 16, 107);}
-  .course2 {width: 100%; background-color:rgb(16, 16, 107);}
+  .course2 {width:100%; background-color:rgb(16, 16, 107);}
   
