@@ -1,15 +1,16 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse
-from .forms import RegistrationForm, EditProfileForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login
-from django.http import HttpResponse, HttpResponseForbidden
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.decorators import login_required
+from .forms import RegistrationForm, EditProfileForm
 from .models import ExtendUser
 
-from django.contrib.auth.forms import AuthenticationForm
+
+#Sign In Main
 
 def signIn(request):
-    if request.method =='POST':
+    if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
@@ -22,19 +23,31 @@ def signIn(request):
         args = {'form': form}
         return render(request, 'signIn.html', args)
 
+#Home view
+
 def home(request):
     return render(request,'brocode.html')
 
+#Login function
+
 def loginView(request):
-    if request.method =='POST':
+    #Login View
+
+    if request.method == 'POST':
         form = AuthenticationForm(data = request.POST)
         if form.is_valid():
             user = form.get_user()
             login(request,user)
-            return render(request,'courseprogress.html')
-    else: 
-        form = AuthenticationForm()
-    return render(request,'login.html',{'form': form})
+            return redirect('checkProgress')
+        else:
+            args = {'form': form}
+            return render(request, 'login.html', args)
+    else:
+        form = RegistrationForm()
+        args = {'form': form}
+        return render(request, 'login.html', args)
+
+#Profile photo upload -does not work yet
 
 def SignUpNext(request):
     if request.method == 'POST':
@@ -57,8 +70,16 @@ def SignUpNext(request):
         args['form'] = form
         return render(request, 'signupnext.html', args)
 
+#Interests Page
+
 def SignUpLast(request):
     return render(request,'signlast.html')
 
+#Instructor Last Page
 def SignInLast(request):
     return render(request,'signlastinstruct.html')
+
+@login_required(login_url='/login')
+def checkProgress(request):
+    #Check Progress Tab
+    return render(request,'courseprogress.html')

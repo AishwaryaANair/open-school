@@ -37,7 +37,7 @@
 
 <div class="split left">
   <h3 style="text-align: left">LOGIN</h3>
-  <form class="register-form" method = 'POST'>
+  <form class="register-form" method = 'POST' action = "{% url 'login' %}">
       {% csrf_token %}
       <label for="{{ form.username.id_for_label }} ">
           Username
