@@ -2,11 +2,14 @@ from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 from django.contrib import auth
+from django.contrib.auth.models import User
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 # Create your models here.
 
-class ExtendUser(auth.models.User):
-    userKey = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='UserExtend')
-    profile = models.ImageField(upload_to = '../media/images', default = '../media/images/no-img.jpg')
+class ExtendUser(models.Model):
+    userKey = models.OneToOneField(User,on_delete=models.CASCADE)
+    profile = models.ImageField(upload_to = 'images', default = 'images/no-img.jpg')
     isInstructor = models.BooleanField(default = False)
 
 class Course(models.Model):
@@ -23,7 +26,8 @@ class Weeks(models.Model):
     weekVideo = models.FileField(upload_to='videos/', null=True, verbose_name="")
     #weekQuiz = models.ForeignKey('school.ModuleTest',on_delete=models.CASCADE)
 
-'''class ModuleTest(models.Model):
+'''
+class ModuleTest(models.Model):
     
 
 class Results(models.Model):

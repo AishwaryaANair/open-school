@@ -1,14 +1,53 @@
 from django import forms
-from .models import ExtendUser, Course
+from django.contrib.auth.models import User
+from .models import ExtendUser
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
-class SignInForm(forms.ModelForm):
-    class Meta():
+
+class RegistrationForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+
+    class Meta:
+        model = User
+        fields = ('username','email','password1','password2',)
+
+    def save(self, commit=True):
+        user = super(RegistrationForm, self).save(commit=False)
+        user.email = self.cleaned_data['email']
+
+        if commit:
+            user.save()
+
+        return user
+
+class LoginForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+
+    class Meta:
+        model = User
+        fields = ('username','email','password1','password2',)
+
+    def save(self, commit=True):
+        user = super(RegistrationForm, self).save(commit=False)
+        user.email = self.cleaned_data['email']
+
+        if commit:
+            user.save()
+
+        return user
+
+class EditProfileForm(forms.ModelForm):
+    profile = forms.ImageField()
+    class Meta:
         model = ExtendUser
-        fields = ('username','email','password','profile',)
+        fields = (
+            'userKey',
+            'profile',
+        )
+    def save(self, commit=True):
+        user = super(EditProfileForm, self).save(commit=False)
 
-        widgets = {
-            'username':forms.TextInput(attrs = {'class':'formInput'}),
-            'email': forms.EmailInput(attrs = {'class':'formInput'}),
-            'password':forms.PasswordInput(attrs = {'class': 'formInput'}),
-            'profile':forms
-        }
+        if commit:
+            user.save()
+
+        return user

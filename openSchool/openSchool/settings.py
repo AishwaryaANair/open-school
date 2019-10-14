@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'openSchool.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'openSchool',
+        'NAME': 'brocode',
         'USER' : 'postgres',
         'PASSWORD':'T@ke@S@dS0ng',
         'HOST' : 'localhost',
@@ -127,5 +127,5 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static/')
 LOGIN_REDIRECT_URL = '/'
 STATICFILES_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 

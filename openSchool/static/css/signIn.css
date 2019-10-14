@@ -216,13 +216,16 @@ nav{
   .formInput{
     font-family: "Roboto", sans-serif;
     outline: 0;
+    display: block;
     background: #f2f2f2;
     width: 90%;
+    height: 1rem;
+    margin: 1rem 0rem;
     position:relative;
     border: 0;
-    padding: 15px;
+    padding: 0.9rem;
     box-sizing: border-box;
-    font-size: 1.2rem;
+    font-size: 1rem;
     border-radius: 30px;
     box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
@@ -231,24 +234,23 @@ nav{
     position: relative;
     text-align: left;
   }
-  .register-form button {
+  .nextButton {
     margin:0.5rem 0rem 0rem 8rem;
     display: block;
     position: relative;
     font-family: "Raleway", sans-serif;
     outline: 0;
     background:rgb(4, 4, 87);
-    width: 30%;
     border: 0;
-    padding: 15px;
+    padding: 1rem;
     color: #FFFFFF;
-    font-size: 25px;
+    font-size: 1.2rem;
+    text-align: center;
     font-weight:bolder;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
     border-radius: 30px;
-    float:left;
     box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   }
@@ -322,7 +324,7 @@ nav{
     border-top-left-radius: 25px;
     border-bottom-left-radius: 25px;
     margin-left: 25px;
-    padding: 2rem 4rem;
+    padding: 1rem 2rem;
     text-align: center;
     width:50%
   }
