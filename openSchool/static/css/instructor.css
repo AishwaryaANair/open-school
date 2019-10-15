@@ -3,9 +3,11 @@
 }
 body {
   font-family:'Raleway', serif;
-  background-image: url("instructor.jpg");
+  background-image: url("../imgs/instructor.jpg");
   background-repeat:no-repeat;
-  height:100vh;
+  height: fit-content;
+  overflow-x: hidden;
+  width: 100%;
   background-position: center;
   background-size:cover;
   opacity:1;
@@ -15,7 +17,7 @@ nav{
   margin-top:0rem;
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 0.3fr 1.5fr 0.3fr;
+  grid-template-columns: 0.3fr 1.5fr 0.4fr;
   grid-template-areas: 
   "menu logo startLogin";
   
@@ -55,7 +57,7 @@ ul {
     text-align: center;
     padding: 10px;
     text-decoration: none;
-    font-size:40px;
+    font-size:1.2rem;
     font-weight: bolder;
     
   }
@@ -161,9 +163,9 @@ a:hover
 #menu
 {
   position: absolute;
-  width: 490px;
+  width: 15rem;
   margin: -100px 0 0 -60px;
-  padding: 50px;
+  padding: 1.5rem;
   padding-top: 125px;
   
   background: #ededed;
@@ -180,7 +182,7 @@ a:hover
 #menu li
 {
   padding: 20px 0;
-  font-size: 40px;
+  font-size: 1.5rem;
   font-weight: 900;
   color:black;
 }
@@ -194,46 +196,82 @@ a:hover
   transform: none;
 }
 
-h2{
+h3{
     color: white;
-    font-size: 50px;
+    font-size: 1.5px;
+    text-align: center;
     font-family: 'Raleway',serif;
     margin-left: 200px;
 }
-
+form {
+  padding: 2rem;
+  font-size: 1.2rem;
+}
 .column {
     border-radius: 35px;
     border: none;
-    float: left;
-    width: 80%;
-    padding: 0 20px 20px;
-    height: 300px; /* Should be removed. Only for demonstration */
-    margin-left:10px;
-    text-align: left;
+    display: block;
+    margin: 1rem;
+    padding: 1rem;
+    width: 95%;
+    height: fit-content;
+    text-align: center;
     font-family: 'Raleway', serif;
-    font-size: 50px;
     font-weight: bold;
-    margin-left: 200px;
     position: relative;
 }
+.nextButton {
 
+  font-family: "Raleway", sans-serif;
+  background:rgb(129, 49, 233);
+  border: 0;
+  color: #FFFFFF;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 0.8rem;
+  cursor: pointer;
+  border-radius: 30px;
+  box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.formInput{
+  font-family: "Raleway", sans-serif;
+  outline: 0;
+  display: block;
+  background: #f2f2f2;
+  width: 100%;
+  height: 1rem;
+  margin: 1rem 0rem;
+  position:relative;
+  border: 0;
+  padding: 0.9rem;
+  box-sizing: border-box;
+  font-size: 1rem;
+  border-radius: 30px;
+  box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+h2 {
+  font-size: 1.8rem;
+  color: white;
+  display: block;
+  margin: 1rem;
+  padding: 1rem;
+  font-weight: bolder;
+  text-align: center;
+}
 .button1 {
     border-radius: 35px;
     border: none;
-    width:180px;
-    height:80px;
-    background-color:rgb(9, 9, 150);
+    width:fit-content;
+    height:fit-content;
+    padding: 0.6rem;
+    background-color:rgb(98, 9, 150);
     font-family: 'Raleway', serif;
-    font-size: 40px;
+    font-size: 1.2rem;
     font-weight: bold;
-    margin-right:100px;
-    margin-bottom:50%;
     color:white;
-    position :absolute;
-    top: 180px;
-    right: 10px;
     text-align: center;
-    padding-top: 15px;
     text-decoration: none;
     display: inline-block;
     cursor: pointer;

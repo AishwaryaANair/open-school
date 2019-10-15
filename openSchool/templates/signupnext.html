@@ -77,9 +77,31 @@
               {% if form.profile.field.required %}required{% endif %}
               class="form-control{% if form.profile.errors %} is-invalid{% endif %}"
               value="{% if form.profile.value %}{{ form.profile.value }}{% endif %}">
-       {% for err in form.profile.errors %}
+        {% for err in form.profile.errors %}
          <span style = "color: red">{{ err }}</span><br>
-       {% endfor %} <br>
+        {% endfor %} <br>
+        <label for="{{ form.isStudent.id_for_label }} ">
+            Select if you are a learner or instructor
+           </label>
+        <input type="radio" class="radioButton" id="{{ form.isStudent.id_for_label }}"
+              name="isStudent"
+              {% if form.isStudent.field.required %}required{% endif %}
+              class="form-control{% if form.isStudent.errors %} is-invalid{% endif %}"
+              value="Student"> Student <br>
+        {% for err in form.isStudent.errors %}
+         <span style = "color: red">{{ err }}</span><br>
+        {% endfor %} <br>
+        <input type="radio" class="radioButton" id="{{ form.isInstructor.id_for_label }}"
+              name="isStudent"
+              {% if form.isInstructor.field.required %}required{% endif %}
+              class="form-control{% if form.isInstructor.errors %} is-invalid{% endif %}"
+              value="{% if form.isInstructor.value %}{{ form.isInstructor.value }}{% endif %}"> Instructor <br>
+        {% for err in form.isInstructor.errors %}
+         <span style = "color: red">{{ err }}</span><br>
+        {% endfor %} <br>
+
+
+        
     <input type ="submit" class = "nextButton" value="next">
   </form>
   

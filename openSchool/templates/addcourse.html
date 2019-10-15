@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>&lt;bro&gt;code</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/instructor.css' %}" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+</head>
+<body style = "height: 100vh">
+<nav> 
+
+  <ul class = 'start'>
+    <li><a href="{% url 'logout' %}">logout</a></li>     
+  </ul>
+
+  <ul class = 'logo'>
+  <li ><a href="{% url 'instructorDash' %}">&lt;bro&gt;code </a></li>
+  </ul>
+
+    <div class = "menu" id="menuToggle">
+      
+      <input type="checkbox"></input>
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+      <ul id="menu">
+        <a href="#"><li>add a course</li></a><br>
+        <a href="{% url 'instructorDash' %}"><li>edit a course</li></a><br>
+        <a href="#"><li>check forum</li></a><br>
+        <a href="#"><li>view test result</li></a><br>
+        <a href="#"><li> logout</li></a><br>
+      <br><br><br>
+      </ul>
+    </div>
+</nav>
+
+<h3>welcome {{user.username}}</h3>
+
+    <div class="column" style="background-color:white;">
+        <form method = 'POST' action = "{% url 'addCourse' %}">
+            {% csrf_token %}
+            <label for="{{ form.courseTitle.id_for_label }} ">
+                title
+               </label>
+               <input type="text" class="formInput" id="{{ form.courseTitle.id_for_label }}"
+                      name="{{ form.courseTitle.html_name }}"
+                      {% if form.CourseTitle.field.required %}required{% endif %}
+                      class="form-control{% if form.courseTitle.errors %} is-invalid{% endif %}"
+                      value="{% if form.courseTitle.value %}{{ form.courseTitle.value }}{% endif %}">
+               {% for err in form.courseTitle.errors %}
+                 <span style = "color: red">{{ err }}</span><br>
+               {% endfor %}
+               <label for="{{ form.courseDescription.id_for_label }} " >
+                description
+               </label> <br>
+               <input type="text" class="formInput" id="{{ form.courseDescription.id_for_label }}"
+                      name="{{ form.courseDescription.html_name }}"
+                      {% if form.courseDescription.field.required %}required{% endif %}
+                      class="form-control{% if form.courseDescription.errors %} is-invalid{% endif %}"
+                      value="{% if form.courseDescription.value %}{{ form.courseDescription.value }}{% endif %}">
+        
+               {% for err in form.courseDescription.errors %}
+                 <span style = "color: red">{{ err }}</span><br>
+               {% endfor %}
+               <label for="{{ form.hours.id_for_label }} " >
+                number of hours
+               </label> <br>
+               <input type="text" class="formInput" id="{{ form.hours.id_for_label }}"
+                      name="{{ form.hours.html_name }}"
+                      {% if form.hours.field.required %}required{% endif %}
+                      class="form-control{% if form.hours.errors %} is-invalid{% endif %}">
+        
+               {% for err in form.hours.errors %}
+                 <span style = "color: red">{{ err }}</span><br>
+               {% endfor %}
+               <input type ='submit' class = "nextButton" value ='next'>
+        </form>
+
+</body>
+</html>
