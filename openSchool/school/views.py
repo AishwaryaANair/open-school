@@ -48,7 +48,7 @@ def loginView(request):
             elif instruct.isInstructor:
                 return redirect('instructorDash')
             else:
-                return redirect('checkProgress')
+                return render(request, 'learner.html')
         else:
             # Return an 'invalid login' error message.
             args = {'form': form}
@@ -96,10 +96,6 @@ def SignUpLast(request):
 def SignInLast(request):
     return render(request,'signlastinstruct.html')
 
-@login_required()
-def checkProgress(request):
-    #Check Progress Tab
-    return render(request, 'courseprogress.html')
 
 @login_required()
 def instructorDash(request):
@@ -202,3 +198,24 @@ def courseView(request):
 def logoutRequest(request):
     logout(request)
     return redirect("home")
+
+
+@login_required()
+def learner(request):
+    return render(request,"learner.html")
+
+def courseprogress(request):
+    #Check Progress Tab
+    return render(request,"courseprogress.html")
+
+def completedcourses(request):
+    #Check Progress Tab
+    return render(request,"completedcourses.html")
+
+def coursecontent(request):
+    #Check Progress Tab
+    return render(request,"coursecontent.html")
+
+def coursedetails(request):
+    #Check Progress Tab
+    return render(request,"coursedetails.html")
