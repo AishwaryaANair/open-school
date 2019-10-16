@@ -112,8 +112,8 @@
   #menuToggle span
   {
     display: block;
-    width: 40px;
-    height: 4px;
+    width: 30px;
+    height: 3px;
     margin-bottom: 5px;
     position: relative;
     background:white;
@@ -165,7 +165,7 @@
   #menu
   {
     position: absolute;
-    width: 490px;
+    width: 350px;
     margin: -100px 0 0 -60px;
     padding: 50px;
     padding-top: 125px;
@@ -184,7 +184,7 @@
   #menu li
   {
     padding: 20px 0;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 900;
     color:black;
   }
