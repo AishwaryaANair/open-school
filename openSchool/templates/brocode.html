@@ -5,6 +5,7 @@
 <title>&lt;bro&gt;code</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="{% static 'css/brocode.css' %}"  type="text/css">
+<link rel="stylesheet" href="{% static 'css/timeline.css' %}"  type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 </head>
 <body>
@@ -36,14 +37,73 @@
         </div>
       </nav>
       <h1>
-        <a href="#" class="typewrite" data-period="2000" data-type='[ "I am Creative.", "I Love Design.", "I Love to Develop." ]'>
+        <a href="#" style = "color: white; font-weight:bolder;" class="typewrite" data-period="2000" data-type='[ "I am Creative.", "I Love Design.", "I Love to Develop." ]'>
             <span class="wrap"></span>
         </a>
       </h1>
     </section>
     <section id="join">
-          <a href = "{% url 'signIn' %}" class="button button1">learner</a>
-          <a href = "{% url 'signIn' %}"class="button button2">instructor</a>
+        <div class="container">
+            <div class="timeline">
+                  <div class="timeline-line" role="presentation">
+                    
+                  </div>
+                
+                <ol class="timeline-events">
+                
+                  <li class="timeline-event">
+                    
+                    <div class="timeline-date">
+                      <time>1998</time>
+                    </div>
+                    
+                    <div class="timeline-description">
+                      Something happened on this date.
+                    </div>	
+                    
+                  </li>
+                  
+                  <li class="timeline-event">
+                    
+                    <div class="timeline-date">
+                      <time>2000</time>
+                    </div>
+                    
+                    <div class="timeline-description">
+                      Something happened on this date.
+                    </div>	
+                    
+                  </li>
+                  
+                  <li class="timeline-event">
+                    
+                    <div class="timeline-date">
+                      <time>2004</time>
+                    </div>
+                    
+                    <div class="timeline-description">
+                      The Archaic period, prior to 2000 BC, saw the first developments in agriculture and the earliest villages.<br />
+                      The Preclassic period (c. 2000 BC to 250 AD) saw the establishment of the first complex societies.
+                    </div>	
+                    
+                  </li>
+                  
+                  <li class="timeline-event">
+                    
+                    <div class="timeline-date">
+                      <time>2006</time>
+                    </div>
+                    
+                    <div class="timeline-description">
+                      Something happened on this date.
+                    </div>	
+                    
+                  </li>
+                  
+                  </ol><!-- /.timeline-events -->
+                  
+                </div><!-- /.timeline -->
+            </div><!-- /.container -->
 
     </section>
 
@@ -93,5 +153,6 @@
           </div>
 
   </section>
+  <script type="text/javascript" src="{% static 'js/typewrite.js' %}"></script>
   </body>
 </html>

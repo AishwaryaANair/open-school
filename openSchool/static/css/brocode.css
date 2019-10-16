@@ -2,7 +2,7 @@ html {
     width: 100%;
     margin: 0rem;
     padding: 0rem;
-    height: 400vh;
+    height: fit-content;
 }
 * {
     box-sizing: border-box;
@@ -10,7 +10,7 @@ html {
   body {
     font-family:'Raleway', serif;
     background-image: linear-gradient(rgba(255, 0, 0, 0.61),yellow);
-    height:400vh;
+    height:fit-content;
     background-position: center;
     background-size:cover;
     opacity:1;
