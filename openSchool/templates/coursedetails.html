@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
 <title>&lt;bro&gt;code</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="coursedetails.css"  type="text/css">
+<link rel="stylesheet" href="{% static 'css/coursedetails.css' %}"  type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 </head>
 <body>
@@ -39,19 +40,19 @@
 
 
     <div class="column1" style="background-color:white;">
-        <p >course 1:<br><br> </p>
+        <p >course 1: </p>
 
     </div>
     
     <div class="column2" style="background-color:white;">
-        <p >week 1<br><br> </p>
+         <p><a href = "{% url 'coursecontent' %}">week 1</a></p>
         <div class="container">
             <div class="skills week1">75%</div>
         </div>
     </div>
 
         <div class="column3" style="background-color:white;">
-        <p >week 2<br><br> </p>
+        <p><a href = "{% url 'coursecontent' %}">week 2</a> </p>
         <div class="container">
             <div class="skills week2">75%</div>
         </div>
@@ -59,7 +60,7 @@
     </div>
 
     <div class="column4" style="background-color:white;">
-        <p >week 3<br><br> </p>
+       <p><a href = "{% url 'coursecontent' %}">week 3</a></p>
         <div class="container">
             <div class="skills week3">75%</div>
         </div>
@@ -67,7 +68,7 @@
     </div>
 
     <div class="column5" style="background-color:white;">
-        <p >week 4<br><br> </p>
+       <p><a href = "{% url 'coursecontent' %}">week 4</a></p>
         <div class="container">
             <div class="skills week4">75%</div>
         </div>
@@ -75,7 +76,7 @@
     </div>
 
     <div class="column6" style="background-color:white;">
-        <p >week 5<br><br> </p>
+        <p><a href = "{% url 'coursecontent' %}">week 5</a></p>
         <div class="container">
             <div class="skills week5">75%</div>
         </div>
@@ -87,5 +88,8 @@
       <input type="button" class="button1" value="take quiz ">
 
     </div>
+
+ 
+
 </body>
 </html>
