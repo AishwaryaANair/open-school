@@ -58,7 +58,7 @@
       text-align: center;
       padding: 10px;
       text-decoration: none;
-      font-size:35px;
+      font-size:1.2rem;
       font-weight: bolder;
       
     }
@@ -165,7 +165,7 @@
   #menu
   {
     position: absolute;
-    width: 350px;
+    width: 490px;
     margin: -100px 0 0 -60px;
     padding: 50px;
     padding-top: 125px;
@@ -184,7 +184,7 @@
   #menu li
   {
     padding: 20px 0;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 900;
     color:black;
   }
@@ -200,7 +200,7 @@
   
   h2{
       color: white;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       font-family: 'Raleway',serif;
       margin-left: 200px;
   }
@@ -215,7 +215,7 @@
       margin-left:10px;
       text-align: left;
       font-family: 'Raleway', serif;
-      font-size: 1.6rem;
+      font-size: 1.9rem;
       font-weight: bold;
       margin-left: 200px;
       position: relative;
@@ -231,7 +231,7 @@
       margin-left:10px;
       text-align: left;
       font-family: 'Raleway', serif;
-      font-size:1.6rem;
+      font-size: 1.6rem;
       font-weight: bold;
       margin-left: 200px;
       position: relative;
@@ -283,7 +283,7 @@
       margin-left:10px;
       text-align: left;
       font-family: 'Raleway', serif;
-      font-size:1.6rem;
+      font-size: 1.6rem;
       font-weight: bold;
       margin-left: 200px;
       position: relative;
@@ -329,20 +329,20 @@
   .button1 {
       border-radius: 35px;
       border: none;
-      width:250px;
-      height:50px;
+      width:150px;
+      height:30px;
       background-color:#1EB7D5;
       font-family: 'Raleway', serif;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       font-weight: bold;
       margin-right:20px;
       margin-bottom:50%;
       color:white;
       position :absolute;
       top: 10px;
-      right: 400px;
+      right: 600px;
       text-align: center;
-      padding-top: 15px;
+      padding-top: 5px;
       text-decoration: none;
       display: inline-block;
       cursor: pointer;
@@ -406,7 +406,7 @@
     padding-bottom: 5px;
     color: white;
     height: 30px;
-    font-size: 1.3rem;
+    font-size: 20px;
   }
   
   .week1 {width: 75%; background-color: #1EB7D5;}
