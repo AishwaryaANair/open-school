@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.dispatch import receiver
@@ -6,7 +6,7 @@ from django.db.models.signals import post_save
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .forms import *
-from .models import ExtendUser, Course
+from .models import *
 
 
 #Sign In Main
@@ -42,7 +42,10 @@ def loginView(request):
         if user is not None:
             login(request, user)
             instruct = ExtendUser.objects.get(userKey = request.user)
-            if instruct.isInstructor:
+            if instruct == None:
+                args = {'form': form}
+                return render(request, 'login.html', args)
+            elif instruct.isInstructor:
                 return redirect('instructorDash')
             else:
                 return redirect('checkProgress')
@@ -107,14 +110,54 @@ def instructorDash(request):
     return render(request, template, {'coursesCreated':coursesCreated,'user': user})
 
 @login_required()
-def courseEdit(request):
+def courseEdit(request, courseUID):
     #Edit Course Content
+    course = get_object_or_404(Course, pk=courseUID)
+    try:
+        weeksCreated = Weeks.objects.get(courseDet = course)
+    except Weeks.DoesNotExist:
+        weeksCreated = None
+    finally:
+        return render(request, 'courseedit.html', {'newWeek':weeksCreated, 'course': course})
+    
+@login_required()
+def editWeekContent(request, weekUID):
+    #Edit Course Content
+    week = get_object_or_404(Weeks, pk=weekUID)
+    return render(request, 'addweekcontent.html', {'newWeek':week})
+
+@login_required()
+def updatedView(request,courseID):
+    #updating the courses
+    user = request.user
+    courseObj = Course.objects.filter(pk = courseID)
+    weeksCreated = Weeks.objects.filter(courseDet = courseID)
+    template = 'addweekcontent.html'
+    return render(request, template, {'newWeek':weeksCreated, 'course': courseObj,'user': user})
+
+@login_required()
+def addWeekContent(request, courseUID):
+    #Add videos to weeks
+    course = Course.objects.get(pk = courseUID)
     if request.method == 'POST':
-        pass
+        form = AddContentForm(request.POST, request.FILES)
+        if form.is_valid():
+            newWeek = Weeks.objects.create(courseDet = course)
+            newWeek.weekTitle = form.cleaned_data['weekTitle']
+            newWeek.weekDesc = form.cleaned_data['weekDesc']
+            newWeek.weekVideo = form.cleaned_data['weekVideo']
+            newWeek.save()
+            newWeeks = Weeks.objects.filter(courseDet = courseUID)
+            return redirect('updatedCourse', courseID = courseUID )
+            
     else:
-        form = AddCourseForm()
-        args = {'course': request.newWeek, 'form':  form }
-        return render(request, 'courseedit.html', args)
+        form = AddContentForm()
+        args = {}
+        args['course'] = course
+        args['form'] = form
+        args['newWeek'] = None
+        return render(request, 'addweekcontent.html',args)
+    #, {'newWeek':weeksCreated,'course': courseName})
 
 
 @login_required()
@@ -128,7 +171,7 @@ def courseAdd(request):
             newCourse.courseDescription = request.POST['courseDescription']
             newCourse.hours = int(request.POST['hours'])
             newCourse.save()
-            return render(request, 'courseedit.html', {'course':newCourse,'user': request.user})
+            return render(request, 'courseedit.html', {'course': newCourse,'user': request.user})
         '''else:
             form = AddCourseForm()
             args = {}
@@ -142,7 +185,9 @@ def courseAdd(request):
         args['creator'] = request.user
         args['form'] = form
         return render(request, 'addcourse.html', args)
-    
+
+def courseView(request):
+    return (request, 'courseview.html', {'course': request.course, 'user': request.user})
 
 @login_required()
 def logoutRequest(request):

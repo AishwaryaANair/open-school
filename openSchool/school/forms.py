@@ -69,7 +69,7 @@ class AddCourseForm(forms.ModelForm):
         return course
 
 class AddContentForm(forms.ModelForm):
-    profile = forms.FileField()
+    weekVideo = forms.FileField()
     class Meta:
         model = Weeks
         fields = (

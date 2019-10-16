@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="{% static 'css/instructor.css' %}" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 </head>
-<body>
+<body style = "min-height: 100vh;">
 <nav> 
 
   <ul class = 'start'>
@@ -46,7 +46,8 @@
         <p >Course: {{c.courseTitle}}<br>
         Description: {{c.courseDescription}}<br>
         Number of Hours: {{c.hours}}</p>
-      <a href="{% url 'courseedit' %}" class="button1" >edit details</a>
+      <a style = 'display: inline-block;' href="{% url 'courseedit' c.pk %}" class="button1" >edit course</a>
+      <a style = 'display: inline-block;' href="{% url 'viewcourse' c.pk %}" class="button1" >view course</a>
     </div>
   {% endif %}
   {% endfor %}

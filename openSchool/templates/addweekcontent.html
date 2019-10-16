@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>&lt;bro&gt;code</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/instructor.css' %}" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+</head>
+<body style = "height: 100vh">
+<nav> 
+
+  <ul class = 'start'>
+    <li><a href="{% url 'logout' %}">logout</a></li>     
+  </ul>
+
+  <ul class = 'logo'>
+  <li ><a href="{% url 'instructorDash' %}">&lt;bro&gt;code </a></li>
+  </ul>
+
+    <div class = "menu" id="menuToggle">
+      
+      <input type="checkbox"></input>
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+      <ul id="menu">
+        <a href="#"><li>add a course</li></a><br>
+        <a href="{% url 'instructorDash' %}"><li>edit a course</li></a><br>
+        <a href="#"><li>check forum</li></a><br>
+        <a href="#"><li>view test result</li></a><br>
+        <a href="#"><li> logout</li></a><br>
+      <br><br><br>
+      </ul>
+    </div>
+</nav>
+
+<h3>{{course.courseTitle}}</h3>
+
+    <div class="column" style="background-color:white;">
+        <form method = 'POST' action = "{% url 'addweek' course.pk %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="{{ form.weekTitle.id_for_label }} ">
+                module name:
+               </label>
+               <input type="text" class="formInput" id="{{ form.weekTitle.id_for_label }}"
+                      name="{{ form.weekTitle.html_name }}"
+                      {% if form.weekTitle.field.required %}required{% endif %}
+                      class="form-control{% if form.weekTitle.errors %} is-invalid{% endif %}"
+                      value="{% if form.weekTitle.value %}{{ form.weekTitle.value }}{% endif %}">
+               {% for err in form.weekTitle.errors %}
+                 <span style = "color: red">{{ err }}</span><br>
+               {% endfor %}
+               <label for="{{ form.weekDesc.id_for_label }} " >
+                module description
+               </label> <br>
+               <input type="text" class="formInput" id="{{ form.weekDesc.id_for_label }}"
+                      name="{{ form.weekDesc.html_name }}"
+                      {% if form.weekDesc.field.required %}required{% endif %}
+                      class="form-control{% if form.weekDesc.errors %} is-invalid{% endif %}"
+                      value="{% if form.weekDesc.value %}{{ form.weekDesc.value }}{% endif %}">
+        
+               {% for err in form.weekDesc.errors %}
+                 <span style = "color: red">{{ err }}</span><br>
+               {% endfor %}
+               <label for="{{ form.weekVideo.id_for_label }} " >
+                video
+               </label> <br>
+               <input type="file" class="formInput" style = "height: fit-content;" id="{{ form.weekVideo.id_for_label }}"
+                      name="{{ form.weekVideo.html_name }}"
+                      {% if form.weekVideo.field.required %}required{% endif %}
+                      class="form-control{% if form.weekVideo.errors %} is-invalid{% endif %}">
+        
+               {% for err in form.weekVideo.errors %}
+                 <span style = "color: red">{{ err }}</span><br>
+               {% endfor %}
+               <input type ='submit' class = "nextButton" value ='next'>
+        </form>
+
+</body>
+</html>

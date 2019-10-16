@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="{% static 'css/instructor.css' %}"  type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-</head>
-<body>
+</head> 
+<body style = "min-height: 100vh;">
 <nav> 
 
   <ul class = 'start'>
@@ -27,7 +27,7 @@
       <span></span>
 
       <ul id="menu">
-        <a href="#"><li>add a course</li></a><br><br>
+        <a href="{% url 'instructorDash' %}"><li>add a course</li></a><br><br>
         <a href="#"><li>edit a course</li></a><br><br>
         <a href="#"><li>check forum</li></a><br><br>
         <a href="#"><li>view test result</li></a><br><br>
@@ -37,21 +37,21 @@
     </div>
 </nav>
 
-<h2>{{course.courseTitle}}</h2>
+<h2 style = "font-weight: bolder;">{{course.courseTitle}}</h2>
 
   <div class="column" style="background-color:white;">
-      <a style = "font-size: 1.5rem" href = "{% url 'addweek' %}">+ add a module</a>
+      <a style = "font-size: 1.5rem" href = "{% url 'addweek' course.pk %}">+ add a module</a>
   </div>
 
-  {% for c in newWeek %}  
-  {% if c is not None %}
-    <div class="column" style="background-color:white;">
-        <p >{{c.weekTitle}}<br>
-        Description: {{c.weekDesc}}<br>
-        Video: {{c.weekVideo}}</p>
-      <a href="{% url 'weekedit' %}" class="button1" >edit details</a>
-    </div>
-  {% endif %}
+  {% for week in newWeek %}  
+    {% if week is not None %}
+      <div class="column" style="background-color:white;">
+          <p >{{week.weekTitle}}<br>
+          Description: {{week.weekDesc}}<br>
+          Video: {{week.weekVideo}}</p>
+        <a href="{% url 'weekedit' week.pk %}" class="button1" >edit details</a>
+      </div>
+    {% endif %}
   {% endfor %}
 </body>
 </html>
