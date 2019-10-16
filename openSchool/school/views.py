@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
-from django.dispatch import receiver
-from django.db.models.signals import post_save
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .forms import *
@@ -28,7 +26,9 @@ def signIn(request):
 #Home view
 
 def home(request):
-    return render(request,'brocode.html')
+    course = Course.objects.filter().order_by('-id')[0]
+    args = {'courses': course }
+    return render(request,'brocode.html',args)
 
 #Login function
 
@@ -114,7 +114,7 @@ def courseEdit(request, courseUID):
     #Edit Course Content
     course = get_object_or_404(Course, pk=courseUID)
     try:
-        weeksCreated = Weeks.objects.get(courseDet = course)
+        weeksCreated = Weeks.objects.filter(courseDet = course)
     except Weeks.DoesNotExist:
         weeksCreated = None
     finally:
@@ -123,17 +123,26 @@ def courseEdit(request, courseUID):
 @login_required()
 def editWeekContent(request, weekUID):
     #Edit Course Content
-    week = get_object_or_404(Weeks, pk=weekUID)
-    return render(request, 'addweekcontent.html', {'newWeek':week})
+    week = Weeks.objects.get(pk = weekUID)
+    if request.method == 'POST':
+        form = AddContentForm(request.POST)
+        if form.is_valid:
+            week.weekTitle = form.cleaned_data['weekTitle']
+            week.weekDesc = form.cleaned_data['weekDesc']
+            week.weekVideo = form.cleaned_data['weekVideo']
+            week.save()
+            return redirect('updatedCourse', courseID = week.courseDet)
+    else:
+        return render(request, 'editweekcontent.html', {'newWeek':week})
 
 @login_required()
-def updatedView(request,courseID):
+def updatedView(request, courseID):
     #updating the courses
-    user = request.user
     courseObj = Course.objects.filter(pk = courseID)
     weeksCreated = Weeks.objects.filter(courseDet = courseID)
-    template = 'addweekcontent.html'
-    return render(request, template, {'newWeek':weeksCreated, 'course': courseObj,'user': user})
+    template = 'courseedit.html'
+    args = {'course': courseObj, 'newWeek':weeksCreated}
+    return render(request , template, args)
 
 @login_required()
 def addWeekContent(request, courseUID):
@@ -148,7 +157,7 @@ def addWeekContent(request, courseUID):
             newWeek.weekVideo = form.cleaned_data['weekVideo']
             newWeek.save()
             newWeeks = Weeks.objects.filter(courseDet = courseUID)
-            return redirect('updatedCourse', courseID = courseUID )
+            return redirect('updatedCourse', courseID = courseUID)
             
     else:
         form = AddContentForm()

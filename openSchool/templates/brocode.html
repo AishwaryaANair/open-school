@@ -11,7 +11,7 @@
   <section id="home">
   <nav> 
     <ul class = 'start'>
-      <li><a href="#join">join</a></li>
+      <li><a href="{% url 'login' %}">join</a></li>
     </ul>
 
     <ul class = 'logo'>
@@ -26,7 +26,7 @@
         <span></span>
 
         <ul id="menu">
-          <a href="#join"><li>sign up</li></a><br>
+          <a href="{% url 'signIn' %}"><li>sign up</li></a><br>
           <a href="{% url 'login' %}"><li>login</li></a><br>
           <a href="#course"><li>courses</li></a><br>
           <a href="#help"><li>help</li></a><br>
@@ -36,6 +36,9 @@
         </div>
       </nav>
       <h1>
+        <a href="#" class="typewrite" data-period="2000" data-type='[ "I am Creative.", "I Love Design.", "I Love to Develop." ]'>
+            <span class="wrap"></span>
+        </a>
       </h1>
     </section>
     <section id="join">
@@ -47,11 +50,15 @@
     <section id="course">
           <h1 >Our top picks </h1>
           <div class="flex-container">
-                  <div>Course<a href = "#join" class="button button3">Learn More</a></div>
-                  <div>Courses<a href = "#join" class="button button3">Learn More</a> </div>
-                  <div>Course<a href = "#join" class="button button3">Learn More</a> </div>
-                  <div>Course<a href = "#join" class="button button3">Learn More</a> </div>
-          </div>
+          {% for c in course %}
+            {% if c is not None %}
+              <div>
+                    <div>{{c.courseTitle}}</div>
+                    <div>{{c.courseDesc}}</div>
+                    <a href = "{% url 'login' %}" class="button button3">Learn More</a> 
+              </div>
+            {% endif %}
+          {% endfor %}
       </div>
     </section>
   <section id="aboutip">
