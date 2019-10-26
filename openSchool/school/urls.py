@@ -23,7 +23,7 @@ urlpatterns = [
     path("completedcourses.html", views.completedcourses, name='completedcourses'),
     path("coursedetails.html", views.coursedetails, name='coursedetails'),
     path("coursecontent.html", views.coursecontent, name='coursecontent'), 
+    path("certi.html", views.certi, name='certi'), 
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
 
