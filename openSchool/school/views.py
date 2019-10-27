@@ -113,18 +113,42 @@ def instructorDash(request):
 def courseEdit(request, courseUID):
     #Edit Course Content
     course = get_object_or_404(Course, pk=courseUID)
+    instruct = ExtendUser.objects.get(userKey = request.user)
     try:
-        weeksCreated = Weeks.objects.get(courseDet = course)
+        weeksCreated = Weeks.objects.filter(courseDet = course)
     except Weeks.DoesNotExist:
         weeksCreated = None
-    finally:
-        return render(request, 'courseedit.html', {'newWeek':weeksCreated, 'course': course})
+        return render(request, 'courseedit.html', {'newWeek':weeksCreated, 'course': course, 'instruct': instruct})
+    else:
+        weeksCreated = Weeks.objects.filter(courseDet = course)
+        return render(request, 'courseedit.html', {'newWeek':weeksCreated, 'course': course, 'instruct': instruct})
     
 @login_required()
 def editWeekContent(request, weekUID):
     #Edit Course Content
-    week = get_object_or_404(Weeks, pk=weekUID)
-    return render(request, 'addweekcontent.html', {'newWeek':week})
+    newWeek = Weeks.objects.get(pk = weekUID)
+    course = Course.objects.get(pk = newWeek.courseDet.pk)
+    if request.method == 'POST':
+        form = EditContentForm(request.POST, request.FILES)
+        if form.is_valid():
+            if form.data['weekTitle']:
+                newWeek.weekTitle = form.cleaned_data['weekTitle']
+                newWeek.save()
+            if form.data['weekDesc']:
+                newWeek.weekDesc = form.cleaned_data['weekDesc']
+                newWeek.save()
+            if form.data['weekVideo']:
+                newWeek.weekVideo = form.cleaned_data['weekVideo']
+                newWeek.save()
+            return redirect('courseedit',courseUID = course.pk)
+    else:
+        form = EditContentForm()
+        args = {}
+        args['form'] = form
+        instruct = ExtendUser.objects.get(userKey = request.user)
+        args['instruct'] = instruct
+        args['newWeek'] = newWeek
+        return render(request, 'editweekcontent.html',args)
 
 @login_required()
 def updatedView(request,courseID):
@@ -150,7 +174,7 @@ def addWeekContent(request, courseUID):
             newWeek.weekVideo = form.cleaned_data['weekVideo']
             newWeek.save()
             newWeeks = Weeks.objects.filter(courseDet = courseUID)
-            return redirect('courseview', courseUID = courseUID)
+            return redirect('courseedit', courseUID = courseUID)
             
     else:
         form = AddContentForm()
@@ -194,9 +218,16 @@ def courseAdd(request):
         return render(request, 'addcourse.html', args)
 
 def courseView(request, courseUID):
+    course = get_object_or_404(Course, pk=courseUID)
     instruct = ExtendUser.objects.get(userKey = request.user)
-    course =  Course.objects.get(pk = courseUID)
-    return (request, 'courseedit.html', {'course': course, 'user': request.user, 'instruct': instruct})
+    try:
+        weeksCreated = Weeks.objects.filter(courseDet = course)
+    except Weeks.DoesNotExist:
+        weeksCreated = None
+        return render(request, 'courseview.html', {'newWeek':weeksCreated, 'course': course, 'instruct': instruct})
+    else:
+        weeksCreated = Weeks.objects.filter(courseDet = course)
+        return render(request, 'courseview.html', {'newWeek':weeksCreated, 'course': course, 'instruct': instruct})
 
 @login_required()
 def logoutRequest(request):

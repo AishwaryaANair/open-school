@@ -28,7 +28,7 @@
 
       <ul id="menu">
         <a href="{% url 'addCourse' %}"><li>add a course</li></a><br><br>
-        <a href="#"><li>edit a course</li></a><br><br>
+        <a href="{% url 'courseedit' course.pk %}"><li>edit a course</li></a><br><br>
         <a href="{% url 'logout' %}"><li> logout</li></a><br><br>
       <br><br><br>
       </ul>

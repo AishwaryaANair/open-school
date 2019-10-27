@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>&lt;bro&gt;code</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/instructor.css' %}"  type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+</head> 
+<body style = "min-height: 100vh;">
+<nav> 
+
+  <ul class = 'start'>
+    <li><img src="./media/{{instruct.profile}}"></img><a href="{% url 'logout' %}">logout</a></li>     
+  </ul>
+
+  <ul class = 'logo'>
+  <li ><a href="{% url 'instructorDash' %}">&lt;bro&gt;code </a></li>
+  </ul>
+
+    <div class = "menu" id="menuToggle">
+      
+      <input type="checkbox"></input>
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+      <ul id="menu">
+        <a href="{% url 'addCourse' %}"><li>add a course</li></a><br><br>
+        <a href="{% url 'courseedit' course.pk %}"><li>edit a course</li></a><br><br>
+        <a href="{% url 'logout' %}"><li> logout</li></a><br><br>
+      <br><br><br>
+      </ul>
+    </div>
+</nav>
+
+<h2 style = "font-weight: bolder;">{{course.courseTitle}}</h2>
+    {% if newWeek %}
+        {% for week in newWeek %}  
+            {% if week is not None %}
+                <div class="column" style="background-color:white;">
+                    <p >{{week.weekTitle}}<br>
+                    Description: {{week.weekDesc}}<br>
+                    Video: {{week.weekVideo}}</p>
+                    <a href="{% url 'weekedit' week.pk %}" class="button1" >edit details</a>
+                </div>
+            {% endif %}
+            {% endfor %}
+        {% else %}
+        <div class="column" style="background-color:white;">
+            <p>no modules added</p>
+        </div>
+    {% endif %}
+</body>
+</html>

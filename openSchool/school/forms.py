@@ -85,3 +85,24 @@ class AddContentForm(forms.ModelForm):
             content.save()
 
         return content
+
+
+class EditContentForm(forms.ModelForm):
+    weekVideo = forms.FileField(required = False)
+    weekTitle = forms.CharField(required = False)
+    weekDesc = forms.CharField(required = False)
+    class Meta:
+        model = Weeks
+        fields = (
+            'weekTitle',
+            'weekVideo',
+            'weekDesc',
+        )
+
+    def save(self, commit=True):
+        content = super(AddContentForm, self).save(commit=False)
+
+        if commit:
+            content.save()
+
+        return content
