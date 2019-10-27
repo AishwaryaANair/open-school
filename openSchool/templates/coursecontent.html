@@ -10,8 +10,8 @@
 <body>
 <nav> 
 
-  <ul class = 'start'>
-    <li><a href="#">logout</a></li>     
+ <ul class = 'start'>
+    <li><a href="{% url 'logout' %}">logout</a></li>     
   </ul>
 
   <ul class = 'logo'>
@@ -27,17 +27,17 @@
       <span></span>
 
       <ul id="menu">
-        <a href="#"><li>my courses</li></a><br><br>
-        <a href="#"><li>completed courses</li></a><br><br>
-        <a href="#"><li>check progress</li></a><br><br>
+         <a href="{% url 'learner' %}"><li>my courses</li></a><br><br>
+        <a href="{% url 'completedcourses' %}"><li>completed courses</li></a><br><br>
+        <a href="{% url 'coursedetails' %}" ><li>check progress</li></a><br><br>
         <a href="#"><li>check forum</li></a><br><br>
-        <a href="#"><li>search for courses</li></a><br><br>
+        <a href="{% url 'logout' %}"><li>logout</li></a><br><br>
       <br><br><br>
       </ul>
     </div>
 </nav>
 
-<h2>Welcome</h2>
+<h2>Welcome {{user.username}}</h2>
 
 
     <div class="column1" style="background-color:white;">

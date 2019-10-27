@@ -1,0 +1,328 @@
+* {
+    box-sizing: border-box;
+  }
+  body {
+    font-family:'Raleway', serif;
+    background-image: url("../imgs/certi.png");
+    background-repeat:no-repeat;
+    height:100vh;
+    background-position: center;
+    background-size:cover;
+    opacity:1;
+  }
+  nav{
+    margin-left: 0rem;
+    margin-top:0rem;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 0.3fr 1.5fr 0.3fr;
+    grid-template-areas: 
+    "menu logo startLogin";
+
+    
+  }
+  .start {
+    color:black;
+    display: grid;
+    grid-area: startLogin
+  }
+  .menu {
+    display: grid;
+    grid-area: menu;
+  }
+  .logo{
+    margin-top: 0%;
+    padding-top: 0%;
+    display: grid;
+    grid-area: logo;
+    top:0;
+  }
+  ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color:transparent;
+      opacity:1;
+    }
+    
+    li {
+      display:inline-block;
+      padding: 10px;
+    }
+    
+    li a {
+      display: block;
+      color:white;
+      text-align: center;
+      padding: 10px;
+      text-decoration: none;
+      font-size:1.2rem;
+      font-weight: bolder;
+      
+    }
+    
+    li a:hover {
+      color: rgb(182, 136, 52) ;
+      opacity:0.852;
+  }
+     
+  a
+  {
+    text-decoration: none;
+    color: #232323;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover
+  {
+    color: tomato;
+  }
+  
+  #menuToggle
+  {
+    display: inline-block;
+    position: relative;
+    top: 1rem;
+    left: 50px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+ 
+  }
+  
+  #menuToggle input
+  {
+    display: block;
+    width: 1.6rem;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0; /* hide this */
+    z-index: 2; /* and place it over the hamburger */
+    -webkit-touch-callout: none;
+  }
+  
+  /*
+   * Just a quick hamburger
+   */
+  #menuToggle span
+  {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin-bottom: 5px;
+    position: relative;
+    background:white;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+  }
+  
+  #menuToggle span:first-child
+  {
+    transform-origin: 0% 0%;
+  }
+  
+  #menuToggle span:nth-last-child(2)
+  {
+    transform-origin: 0% 100%;
+  }
+  
+  
+  #menuToggle input:checked ~ span
+  {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+  }
+  
+  /*
+   * But let's hide the middle one.
+   */
+  #menuToggle input:checked ~ span:nth-last-child(3)
+  {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  
+  
+  #menuToggle input:checked ~ span:nth-last-child(2)
+  {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+  
+  /*
+   * Make this absolute positioned
+   * at the top left of the screen
+   */
+  #menu
+  {
+    position: absolute;
+    width: 350px;
+    margin: -100px 0 0 -60px;
+    padding: 50px;
+    padding-top: 125px;
+    
+    background: #ededed;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  }
+  
+  #menu li
+  {
+    padding: 20px 0;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color:black;
+  }
+  #menu li:hover
+  {
+    color:grey;
+  }
+  
+  #menuToggle input:checked ~ ul
+  {
+    transform: none;
+  }
+  
+  h2{
+      color: white;
+      font-size: 1.6rem;
+      font-family: 'Raleway',serif;
+      margin-left: 200px;
+  }
+  
+  .column1{
+      border-radius: 35px;
+      border: none;
+      float: left;
+      width: 80%;
+      padding: 0 20px 20px;
+      height: 200px; /* Should be removed. Only for demonstration */
+      margin-left:10px;
+      text-align: left;
+      font-family: 'Raleway', serif;
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-left: 200px;
+      position: relative;
+  }
+  
+  .column2 {
+    border-radius: 35px;
+    border: none;
+    float: left;
+    width: 80%;
+    padding: 0 20px 20px;
+    height: 200px; /* Should be removed. Only for demonstration */
+    margin-left:10px;
+    text-align: left;
+    font-family: 'Raleway', serif;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-left: 200px;
+    position: relative;
+    margin-top: 20px;
+}
+
+  
+  .button1 {
+      border-radius: 35px;
+      border: none;
+      width:120px;
+      height:30px;
+      background-color:rgb(9, 9, 150);
+      font-family: 'Raleway', serif;
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-right:20px;
+      margin-bottom:50%;
+      color:white;
+      position :absolute;
+      top: 120px;
+      right: 100px;
+      text-align: center;
+      padding-top: 5px;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+  
+  }
+  
+  .button1:hover {background-color: darkblue}
+  .button1:focus {outline:0;}
+  
+  .button1:active {
+    background-color:darkblue;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  
+ 
+  
+  .button2{
+    border-radius: 35px;
+    border: none;
+    width:120px;
+    height:30px;
+    background-color:rgb(9, 9, 150);
+    font-family: 'Raleway', serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-right:20px;
+    margin-bottom:50%;
+    color:white;
+    position :absolute;
+    top: 120px;
+    right: 100px;
+    text-align: center;
+    padding-top: 5px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .button2:hover {background-color: darkblue}
+  .button2:focus {outline:0;}
+  
+  .button2:active {
+    background-color:darkblue;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .container {
+    width: 400px;
+    height: 30px;
+    background-color: #ddd;
+    position:absolute;
+    margin-left: 280px;
+    top:85px;
+  }
+  
+
+  .skills {
+    text-align: right;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    height: 30px;
+    font-size: 20px;
+  }
+  
+  .course1 {width: 75%; background-color: rgb(16, 16, 107);}
+  .course2 {width: 75%; background-color:rgb(16, 16, 107);}
+  
+  .coursecom1{width: 100%; background-color: rgb(16, 16, 107);}
+  .coursecom2 {width: 100%; background-color:rgb(16, 16, 107);}

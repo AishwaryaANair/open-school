@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>&lt;bro&gt;code</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/certi.css' %}"  type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+</head>
+<body>
+<nav> 
+ 
+
+  <ul  class = 'start'>
+    <li><a href="{% url 'logout' %}">logout</a></li>     
+  </ul>
+</nav>
+
+<div style="background-color:white; width:800px; height:600px; margin-top:10rem; margin-left:20rem; padding:20px; text-align:center; border: 10px solid #787878">
+<div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid #787878">
+       <span style="font-size:50px; font-weight:bold">Certificate of Completion</span>
+       <br><br>
+       <span style="font-size:25px"><i>This is to certify that</i></span>
+       <br><br>
+       <span style="font-size:30px"><b>{{user.username}}</b></span><br/><br/>
+       <span style="font-size:25px"><i>has completed the course</i></span> <br/><br/>
+       <span style="font-size:30px">{{course.courseTitle}}</span> <br/><br/>
+       <span style="font-size:20px">Sucessfully</b></span> <br/><br/><br/><br/>
+</div>
+</div>
+</body>
+</html>

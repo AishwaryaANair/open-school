@@ -10,8 +10,8 @@
 <body>
 <nav> 
 
-  <ul class = 'start'>
-    <li><a href="#">logout</a></li>     
+ <ul class = 'start'>
+    <li><a href="{% url 'logout' %}">logout</a></li>     
   </ul>
 
   <ul class = 'logo'>
@@ -27,10 +27,11 @@
       <span></span>
 
       <ul id="menu">
-        <a href="{% url 'courseprogress' %}"><li>my courses</li></a><br><br>
+        <a href="{% url 'learner' %}"><li>my courses</li></a><br><br>
         <a href="{% url 'completedcourses' %}"><li>completed courses</li></a><br><br>
-        <a href="#" ><li>check progress</li></a><br><br>
+        <a href="{% url 'coursedetails' %}" ><li>check progress</li></a><br><br>
         <a href="#"><li>check forum</li></a><br><br>
+        <a href="{% url 'logout' %}"><li>logout</li></a><br><br>
       <br><br><br>
       </ul>
     </div>
@@ -39,18 +40,19 @@
         <br>
         <br>
         <h2 style="color:white" >OUR TOP PICKS:</h2> 
+        {% for data in data %}
         <div class="flex-about">
             <div>
-              <h1 style ="text-align:left"> COURSE 1:</h1>
+              <h1 style ="text-align:left"> COURSE 1:{{data.courseTitle}}<br></h1>
               <br>
-              <h2 style ="text-align:left">Content:</h2>
-              <h2 style ="text-align:left">No.OF Hours:</h2>
-              <h2 style ="text-align:left">Instructor:</h2>
+              <h2 style ="text-align:left">Description{{data.courseDescription }}</h2>
+              <h2 style ="text-align:left">No.OF Hours:{{data.hours}}</h2>
                <br><br><br>
-             <button  class="button button1"> <a href = "{% url 'courseprogress' %}">ENROLL</a></button> 
+               <button class="button button1"> <a href = "{% url 'coursedetails' %}">ENROLL</a></button> 
               </div> 
-           
+        {% endfor %}
         </div>
+
         
 </section>
 

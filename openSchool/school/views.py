@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .forms import *
 from .models import *
-
+from .models import Course
+from .models import Weeks
 
 #Sign In Main
 
@@ -26,9 +29,8 @@ def signIn(request):
 #Home view
 
 def home(request):
-    course = Course.objects.filter().order_by('-id')[0]
-    args = {'courses': course }
-    return render(request,'brocode.html',args)
+
+    return render(request,'brocode.html')
 
 #Login function
 
@@ -49,7 +51,8 @@ def loginView(request):
                 arg = {'instruct':instruct}
                 return render(request, 'instructor.html',arg)
             else:
-                return render(request, 'learner.html')
+                
+                return render(request, 'courseprogress.html')
         else:
             # Return an 'invalid login' error message.
             args = {'form': form}
@@ -97,7 +100,6 @@ def SignUpLast(request):
 def SignInLast(request):
     return render(request,'signlastinstruct.html')
 
-
 @login_required()
 def instructorDash(request):
     #Instructor Dashboard
@@ -112,7 +114,7 @@ def courseEdit(request, courseUID):
     #Edit Course Content
     course = get_object_or_404(Course, pk=courseUID)
     try:
-        weeksCreated = Weeks.objects.filter(courseDet = course)
+        weeksCreated = Weeks.objects.get(courseDet = course)
     except Weeks.DoesNotExist:
         weeksCreated = None
     finally:
@@ -121,21 +123,13 @@ def courseEdit(request, courseUID):
 @login_required()
 def editWeekContent(request, weekUID):
     #Edit Course Content
-    week = Weeks.objects.get(pk = weekUID)
-    if request.method == 'POST':
-        form = AddContentForm(request.POST)
-        if form.is_valid:
-            week.weekTitle = form.cleaned_data['weekTitle']
-            week.weekDesc = form.cleaned_data['weekDesc']
-            week.weekVideo = form.cleaned_data['weekVideo']
-            week.save()
-            return redirect('updatedCourse', courseID = week.courseDet)
-    else:
-        return render(request, 'editweekcontent.html', {'newWeek':week})
+    week = get_object_or_404(Weeks, pk=weekUID)
+    return render(request, 'addweekcontent.html', {'newWeek':week})
 
 @login_required()
-def updatedView(request, courseID):
+def updatedView(request,courseID):
     #updating the courses
+    user = request.user
     courseObj = Course.objects.filter(pk = courseID)
     weeksCreated = Weeks.objects.filter(courseDet = courseID)
     template = 'courseedit.html'
@@ -209,14 +203,15 @@ def logoutRequest(request):
     logout(request)
     return redirect("home")
 
-
 @login_required()
 def learner(request):
-    return render(request,"learner.html")
+    data = Course.object.all()
+    return render(request,"learner.html",{'data': data})
 
 def courseprogress(request):
     #Check Progress Tab
-    return render(request,"courseprogress.html")
+    title = Course.object.all()
+    return render(request,"courseprogress.html",{'title':title})
 
 def completedcourses(request):
     #Check Progress Tab
@@ -224,8 +219,13 @@ def completedcourses(request):
 
 def coursecontent(request):
     #Check Progress Tab
+    weekTitle=Weeks()
     return render(request,"coursecontent.html")
 
 def coursedetails(request):
     #Check Progress Tab
     return render(request,"coursedetails.html")
+
+def certi(request):
+    #Check Progress Tab
+    return render(request,"certi.html")
