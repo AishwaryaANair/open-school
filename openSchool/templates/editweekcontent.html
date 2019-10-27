@@ -27,11 +27,9 @@
       <span></span>
 
       <ul id="menu">
-        <a href="#"><li>add a course</li></a><br>
+        <a href="{% url 'addCourse' %}"><li>add a course</li></a><br>
         <a href="{% url 'instructorDash' %}"><li>edit a course</li></a><br>
-        <a href="#"><li>check forum</li></a><br>
-        <a href="#"><li>view test result</li></a><br>
-        <a href="#"><li>logout</li></a><br>
+        <a href="{% url 'logout' %}"><li>logout</li></a><br>
       <br><br><br>
       </ul>
     </div>
@@ -40,7 +38,7 @@
 <h3>{{newWeek.weekTitle}}</h3>
     
     <div class="column" style="background-color:white;">
-        <form method = 'POST' enctype="multipart/form-data">
+        <form method = 'POST' action = "{% url 'weekedit' newWeek.pk %}" enctype="multipart/form-data">
             {% csrf_token %}
             <label for="{{ form.weekTitle.id_for_label }} ">
                 module name: {{newWeek.weekTitle}}

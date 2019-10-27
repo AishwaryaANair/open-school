@@ -11,7 +11,7 @@
 <nav> 
 
   <ul class = 'start'>
-    <li><a href="{% url 'logout' %}">logout</a></li>     
+      <li><img src="./media/{{instruct.profile}}"></img><a href="{% url 'logout' %}">logout</a></li>      
   </ul>
 
   <ul class = 'logo'>
@@ -27,10 +27,8 @@
       <span></span>
 
       <ul id="menu">
-        <a href="#"><li>add a course</li></a><br>
+        <a href="{% url 'instructorDash' %}"><li>add a course</li></a><br>
         <a href="{% url 'instructorDash' %}"><li>edit a course</li></a><br>
-        <a href="#"><li>check forum</li></a><br>
-        <a href="#"><li>view test result</li></a><br>
         <a href="#"><li>logout</li></a><br>
       <br><br><br>
       </ul>

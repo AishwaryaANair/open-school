@@ -46,7 +46,8 @@ def loginView(request):
                 args = {'form': form}
                 return render(request, 'login.html', args)
             elif instruct.isInstructor:
-                return redirect('instructorDash')
+                arg = {'instruct':instruct}
+                return render(request, 'instructor.html',arg)
             else:
                 return render(request, 'learner.html')
         else:
@@ -101,9 +102,10 @@ def SignInLast(request):
 def instructorDash(request):
     #Instructor Dashboard
     user = request.user
+    instruct = ExtendUser.objects.get(userKey = request.user)
     coursesCreated = Course.objects.filter(creator=request.user)
     template = 'instructor.html'
-    return render(request, template, {'coursesCreated':coursesCreated,'user': user})
+    return render(request, template, {'coursesCreated':coursesCreated,'user': user,'instruct':instruct})
 
 @login_required()
 def courseEdit(request, courseUID):
@@ -138,12 +140,13 @@ def updatedView(request, courseID):
     weeksCreated = Weeks.objects.filter(courseDet = courseID)
     template = 'courseedit.html'
     args = {'course': courseObj, 'newWeek':weeksCreated}
-    return render(request , template, args)
+    return redirect('courseedit', courseUID = courseID)
 
 @login_required()
 def addWeekContent(request, courseUID):
     #Add videos to weeks
     course = Course.objects.get(pk = courseUID)
+    instruct = ExtendUser.objects.get(userKey = request.user)
     if request.method == 'POST':
         form = AddContentForm(request.POST, request.FILES)
         if form.is_valid():
@@ -153,13 +156,15 @@ def addWeekContent(request, courseUID):
             newWeek.weekVideo = form.cleaned_data['weekVideo']
             newWeek.save()
             newWeeks = Weeks.objects.filter(courseDet = courseUID)
-            return redirect('updatedCourse', courseID = courseUID)
+            return redirect('courseview', courseUID = courseUID)
             
     else:
         form = AddContentForm()
         args = {}
         args['course'] = course
         args['form'] = form
+        instruct = ExtendUser.objects.get(userKey = request.user)
+        args['instruct'] = instruct
         args['newWeek'] = None
         return render(request, 'addweekcontent.html',args)
     #, {'newWeek':weeksCreated,'course': courseName})
@@ -176,7 +181,8 @@ def courseAdd(request):
             newCourse.courseDescription = request.POST['courseDescription']
             newCourse.hours = int(request.POST['hours'])
             newCourse.save()
-            return render(request, 'courseedit.html', {'course': newCourse,'user': request.user})
+            instruct = ExtendUser.objects.get(userKey = request.user)
+            return render(request, 'courseedit.html', {'course': newCourse,'user': request.user,'instruct':instruct})
         '''else:
             form = AddCourseForm()
             args = {}
@@ -188,11 +194,15 @@ def courseAdd(request):
         form = AddCourseForm()
         args = {}
         args['creator'] = request.user
+        instruct = ExtendUser.objects.get(userKey = request.user)
         args['form'] = form
+        args['instruct'] = instruct
         return render(request, 'addcourse.html', args)
 
-def courseView(request):
-    return (request, 'courseview.html', {'course': request.course, 'user': request.user})
+def courseView(request, courseUID):
+    instruct = ExtendUser.objects.get(userKey = request.user)
+    course =  Course.objects.get(pk = courseUID)
+    return (request, 'courseedit.html', {'course': course, 'user': request.user, 'instruct': instruct})
 
 @login_required()
 def logoutRequest(request):

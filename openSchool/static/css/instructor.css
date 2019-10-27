@@ -26,6 +26,12 @@ nav{
   display: grid;
   grid-area: startLogin
 }
+
+img {
+  max-width: 2rem;
+  max-height: 2rem;
+  display: inline-block;
+}
 .menu {
   display: grid;
   grid-area: menu;
@@ -50,9 +56,17 @@ ul {
     display:inline-block;
     padding: 10px;
   }
-  
+  .logo li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      text-decoration: none;
+      font-size:1.2rem;
+      font-weight: bolder;
+  }
   li a {
-    display: block;
+    display: inline-block;
     color: white;
     text-align: center;
     padding: 10px;
@@ -254,11 +268,12 @@ form {
 h2 {
   font-size: 1.8rem;
   color: white;
-  display: block;
+  display: grid;
   margin: 1rem;
   padding: 1rem;
   font-weight: bolder;
   text-align: center;
+  grid-area: name;
 }
 .button1 {
     border-radius: 35px;
