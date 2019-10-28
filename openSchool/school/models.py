@@ -14,14 +14,7 @@ class ExtendUser(models.Model):
     profile = models.ImageField(upload_to = 'images', default = 'images/no-img.jpg')
     isStudent = models.BooleanField('Student',default = False)
     isInstructor = models.BooleanField('Instructor',default = False)
-'''
-@receiver(post_save, sender = User)
-def userCreated(sender, instance, created,**kwargs):
-    if created:
-        ExtendUser.objects.create(userKey = instance)
-    else:
-        instance.extenduser.create()
-'''
+
 class Course(models.Model):
     
     #Course model
@@ -40,11 +33,3 @@ class Weeks(models.Model):
     weekVideo = models.FileField(upload_to='videos/', null=True, verbose_name="")
     weekDesc = models.TextField(max_length = 200)
     #weekQuiz = models.ForeignKey('school.ModuleTest',on_delete=models.CASCADE)
-
-'''
-class ModuleTest(models.Model):
-    
-
-class Results(models.Model):
-    pass
-'''
