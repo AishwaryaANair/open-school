@@ -3,7 +3,7 @@
   }
   body {
     font-family:'Raleway', serif;
-    background-image: url("texture.jpg");
+    background-image: url("../imgs/texture.jpg");
     background-repeat:no-repeat;
     height:100vh;
     background-position: center;
