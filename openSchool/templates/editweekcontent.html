@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="{% static 'css/instructor.css' %}" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 </head>
-<body style = "height: 100vh">
+<body style = "min-height: 100vh">
 <nav> 
 
   <ul class = 'start'>
@@ -76,6 +76,10 @@
                {% endfor %}
                <input type ='submit' class = "nextButton" value ='next'>
         </form>
+        <video width="70%" height="400" controls>
+          <source src="media/{{newWeek.weekVideo}}" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
 
 </body>
 </html>

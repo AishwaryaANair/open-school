@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
+from django.http import JsonResponse
 from django.contrib.auth import login, logout, authenticate
 from django.dispatch import receiver
 from django.db.models.signals import post_save
@@ -19,18 +20,17 @@ def contact(request):
     
     ''' Contact Us Form Rendering'''
 
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-        else:
-            args = {'form': form}
-            return render(request, 'contactus.html', args)
-    else:
-        form = ContactForm()
-        args = {'form': form}
-        return render(request, 'contactus.html', args)
+    form = ContactForm()
+    args = {'form': form}
+    return render(request, 'contactus.html', args)
+
+
+def postContact(request):
+	if request.method == "POST" and request.is_ajax():
+		form = ContactForm(request.POST)
+		form.save()
+		return JsonResponse({"success":True}, status=200)
+	return JsonResponse({"success":False}, status=400)
 
 #Sign In Main
 
@@ -153,10 +153,10 @@ def editWeekContent(request, weekUID):
             if form.data['weekDesc']:
                 newWeek.weekDesc = form.cleaned_data['weekDesc']
                 newWeek.save()
-            if form.data['weekVideo']:
+            if form.cleaned_data['weekVideo']:
                 newWeek.weekVideo = form.cleaned_data['weekVideo']
                 newWeek.save()
-            return redirect('courseedit',courseUID = course.pk)
+            return redirect('weekedit',weekUID = newWeek.pk)
     else:
         form = EditContentForm()
         args = {}

@@ -8,6 +8,7 @@ urlpatterns = [
     #Home Page URLs 
     path('', views.home, name='home'), 
     path('contact',views.contact,name = 'contact'),
+    path('contactSubmit', views.postContact, name ='contact_submit'),
 
     #Sign In / Login
     path('signIn.html',views.signIn, name ='signIn'),

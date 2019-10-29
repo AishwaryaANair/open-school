@@ -57,12 +57,12 @@ height:10rem;
 
 <div class="split left">
     <h3 style="text-align: left">contact us</h3>
-    <form class="register-form" method = 'POST'>
+    <form class="register-form" id = "contactForm" method = 'POST'>
         {% csrf_token %}
         <label for="{{ form.email.id_for_label }} ">
             email
         </label>
-        <input type="text" class="formInput" id="{{ form.email.id_for_label }}"
+        <input type="email" class="formInput" id="{{ form.email.id_for_label }}"
         name="{{ form.email.html_name }}"
         {% if form.email.field.required %}required{% endif %}
               class="form-control{% if form.email.errors %} is-invalid{% endif %}"
@@ -90,13 +90,35 @@ height:10rem;
 
 <div class="split right">
   <div class="centered">
-    
-    <p>  </p>
   </div>
 </div>
-     
+  
 </body>
-</html> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+     $("#contactForm").submit(function(e){
+    // prevent from normal form behaviour
+          e.preventDefault();
+        // serialize the form data  
+          var serializedData = $(this).serialize();
+          $.ajax({
+            type : 'POST',
+            url :  "{% url 'contact_submit' %}",
+            data : serializedData,
+            success : function(response){
+        //reset the form after successful submit
+              $("#contactForm")[0].reset(); 
+              console.log('done') //sanity check
+              alert('Your Details are submitted, we will get back to you soon')
+            },
+            error : function(response){
+              console.log(response)
 
-</body>
-</html>
+            }
+          });
+     });
+  });
+  </script>
+</html> 
