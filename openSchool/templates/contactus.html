@@ -1,3 +1,4 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,36 +6,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  <link rel="stylesheet" type="text/css" href="brocode.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
   <style>
-.divide {
-    
-    height:80%;
-    width: 50%;
-    position: fixed;
-    z-index: 1;
-    top: 100px;
-    overflow-x: hidden;
-    padding-top: 20px;
-    scroll-margin-top: 10px;
-  }
 
-.logleft {
-    left: 0;
-    background-color:white;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    margin-left: 25px;
-    padding: 45px;
-    text-align: center;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  
 
-  }
-
-.logright {
+.right {
     right: 0;
-    background-image:url("contact.jpg");
+    background-image:url("../static/imgs/contact.jpg");
     background-size:cover;
     background-repeat: no-repeat; 
     margin-right:25px;
@@ -47,55 +25,70 @@ h2{
   margin-top:0;
 }
 
-#comment{
+#id_comments{
 height:10rem;
 }
 
 </style>
 </head>
 <body>
-        <nav> 
-                            
-                <ul class = 'logo'>
-                <li ><a href="home.html">&lt;bro&gt;code </a></li>
-                </ul>
-                  <div class = "menu" id="menuToggle">
+<nav> 
                     
-                    <input type="checkbox"></input>
-              
-                    <span></span>
-                    <span></span>
-                    <span></span>
-              
-                    <ul id="menu">
-                      <a href="#"><li>sign up</li></a><br><br>
-                      <a href="#"><li>login</li></a><br><br>
-                      <a href="#"><li>courses</li></a><br><br>
-                      <a href="#"><li>help</li></a><br><br>
-                      <a href="#"><li> about us</li></a><br><br>
-                      <a href="#"><li> contact us</li></a><br><br><br>
-                    <br><br><br>
-                    </ul>
-                  </div>
-                </nav>
+        <ul class = 'logo'>
+        <li ><a href="{% url 'home' %}">&lt;bro&gt;code </a></li>
+        </ul>
+          <div class = "menu" id="menuToggle">
+            
+            <input type="checkbox"></input>
+      
+            <span></span>
+            <span></span>
+            <span></span>
+      
+            <ul id="menu">
+              <a href="{% url 'signIn' %}"><li>sign up</li></a>
+              <a href="{% url 'login' %}"><li>login</li></a>
+              <a href="{% url 'home' %}"><li>courses</li></a>
+              <a href="{% url 'home' %}"><li>help</li></a>
+              <a href="{% url 'home' %}"><li> about us</li></a>
+            </ul>
+          </div>
+        </nav>
 
-   
-<div class="divide logleft">
-    <h2 style="text-align:left">Contact Us:</h2>
-    <p style="text-align: left">email:</p>
-    <form class="register-form">
-    <input type="email" />
-    <p style="text-align:left">Comments:</p>
-    <input id="comment" type="text" />
-    <br><br>
-    <button>send</button>
-  </form>
- 
+<div class="split left">
+    <h3 style="text-align: left">contact us</h3>
+    <form class="register-form" method = 'POST'>
+        {% csrf_token %}
+        <label for="{{ form.email.id_for_label }} ">
+            email
+        </label>
+        <input type="text" class="formInput" id="{{ form.email.id_for_label }}"
+        name="{{ form.email.html_name }}"
+        {% if form.email.field.required %}required{% endif %}
+              class="form-control{% if form.email.errors %} is-invalid{% endif %}"
+              value="{% if form.email.value %}{{ form.email.value }}{% endif %}">
+        {% if form.email.errors %}
+        {% for err in form.email.errors %}
+          <span style = "color: red">{{ err }}</span><br>
+        {% endfor %}
+        {% endif %}
   
+        <label for="{{ form.comments.id_for_label }} ">
+          comments
+        </label>
+        <input type="text" class="formInput" id="{{ form.comments.id_for_label }}"
+              name="{{ form.comments.html_name }}"
+              {% if form.comments.field.required %}required{% endif %}
+              class="form-control{% if form.comments.errors %} is-invalid{% endif %}"
+              value="{% if form.comments.value %}{{ form.comments.value }}{% endif %}">
+        {% for err in form.comments.errors %}
+          <span style = "color: red">{{ err }}</span><br>
+        {% endfor %}
+    <input type = "submit" class = "nextButton" value="next">
 
 </div>
 
-<div class="divide logright">
+<div class="split right">
   <div class="centered">
     
     <p>  </p>

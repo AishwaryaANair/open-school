@@ -169,7 +169,7 @@ nav{
   #menu
   {
     position: absolute;
-    width: 400px;
+    width: 300px;
     margin: -100px 0 0 -60px;
     padding: 50px;
     padding-top: 125px;
@@ -188,7 +188,7 @@ nav{
   #menu li
   {
     padding: 20px 0;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color:black;
     font-family: 'Raleway', serif;
@@ -235,7 +235,7 @@ nav{
     text-align: left;
   }
   .nextButton {
-    margin: 0rem 12rem;
+    margin: 2rem 12rem;
     text-align: center;
     display: block;
     position: relative;
@@ -349,7 +349,11 @@ nav{
   }
   .signInLink {
     text-align: center;
-    margin: 3rem 0rem;
+    margin-top: 1rem;
+    padding: 2rem;
+    margin-right: 5.6rem;
+    display: block;
+
   }
   .centered img {
     width: 150px;

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
-from .models import ExtendUser, Course, Weeks
+from .models import *
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -32,6 +32,22 @@ class LoginForm(UserCreationForm):
             user.save()
 
         return user
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = (
+            'email',
+            'comments',
+        )
+
+    def save(self, commit=True):
+        content = super(ContactForm, self).save(commit=False)
+
+        if commit:
+            content.save()
+
+        return content
 
 class EditProfileForm(forms.ModelForm):
     profile = forms.ImageField()
@@ -85,7 +101,6 @@ class AddContentForm(forms.ModelForm):
             content.save()
 
         return content
-
 
 class EditContentForm(forms.ModelForm):
     weekVideo = forms.FileField(required = False)

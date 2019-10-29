@@ -7,6 +7,7 @@ from .import views
 urlpatterns = [
     #Home Page URLs 
     path('', views.home, name='home'), 
+    path('contact',views.contact,name = 'contact'),
 
     #Sign In / Login
     path('signIn.html',views.signIn, name ='signIn'),
@@ -33,7 +34,7 @@ urlpatterns = [
 
     #Logout Url
 
-    path('home.html', views.logoutRequest, name='logout'),
+    path('', views.logoutRequest, name='logout'),
     
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

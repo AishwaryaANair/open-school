@@ -22,13 +22,11 @@
         <span></span>
   
         <ul id="menu">
-          <a href="{% url 'signIn' %}"><li>sign up</li></a><br>
-          <a href="#"><li>login</li></a><br>
-          <a href="#"><li>courses</li></a><br>
-          <a href="#"><li>help</li></a><br>
-          <a href="#"><li> about us</li></a><br>
-          <a href="#"><li> contact us</li></a><br>
-        <br><br><br>
+            <a href="{% url 'signIn' %}"><li>sign up</li></a>
+            <a href="{% url 'login' %}"><li>login</li></a>
+            <a href="{% url 'home' %}"><li>courses</li></a>
+            <a href="{% url 'home' %}"><li>help</li></a>
+            <a href="{% url 'home' %}"><li> about us</li></a>
         </ul>
       </div>
     </nav>
@@ -44,12 +42,14 @@
       </label>
       <input type="text" class="formInput" id="{{ form.username.id_for_label }}"
       name="{{ form.username.html_name }}"
-      {% if form.password.field.required %}required{% endif %}
-      class="form-control{% if form.usename.errors %} is-invalid{% endif %}"
-      value="{% if form.username.value %}{{ form.username.value }}{% endif %}">
+      {% if form.username.field.required %}required{% endif %}
+            class="form-control{% if form.username.errors %} is-invalid{% endif %}"
+            value="{% if form.username.value %}{{ form.username.value }}{% endif %}">
+      {% if form.username.errors %}
       {% for err in form.username.errors %}
         <span style = "color: red">{{ err }}</span><br>
       {% endfor %}
+      {% endif %}
 
       <label for="{{ form.password.id_for_label }} ">
         Password
@@ -67,8 +67,10 @@
   <input type="password" />
   <br> <br>-->
   <input type = "submit" class = "nextButton" value="next">
-  </form>
+
   <a class = 'signInLink' href = "{%url 'signIn' %}">Not a member yet?</a>
+  </form>
+  
 
 
 </div>

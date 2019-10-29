@@ -7,8 +7,30 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .forms import *
 from .models import *
-from .models import Course
-from .models import Weeks
+
+#Home view
+
+def home(request):
+    course = Course.objects.all()[:4]
+    args = {'course':course}
+    return render(request,'brocode.html',args)
+
+def contact(request):
+    
+    ''' Contact Us Form Rendering'''
+
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+        else:
+            args = {'form': form}
+            return render(request, 'contactus.html', args)
+    else:
+        form = ContactForm()
+        args = {'form': form}
+        return render(request, 'contactus.html', args)
 
 #Sign In Main
 
@@ -25,12 +47,6 @@ def signIn(request):
         form = RegistrationForm()
         args = {'form': form}
         return render(request, 'signIn.html', args)
-
-#Home view
-
-def home(request):
-
-    return render(request,'brocode.html')
 
 #Login function
 
@@ -65,7 +81,7 @@ def loginView(request):
 
 def SignUpNext(request):
 
-    #Profile photo upload -does not work yet
+    #Profile photo upload 
     if request.method == 'POST':
         form = EditProfileForm(request.POST, request.FILES)
         val = request.POST['isStudent']

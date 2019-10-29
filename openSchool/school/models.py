@@ -33,3 +33,7 @@ class Weeks(models.Model):
     weekVideo = models.FileField(upload_to='videos/', null=True, verbose_name="")
     weekDesc = models.TextField(max_length = 200)
     #weekQuiz = models.ForeignKey('school.ModuleTest',on_delete=models.CASCADE)
+
+class Contact(models.Model):
+    email = models.CharField(max_length = 100)
+    comments = models.TextField(max_length = 500)
