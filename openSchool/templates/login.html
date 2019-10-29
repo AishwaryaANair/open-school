@@ -37,31 +37,33 @@
   <h3 style="text-align: left">LOGIN</h3>
   <form class="register-form" method = 'POST'>
       {% csrf_token %}
-      <label for="{{ form.username.id_for_label }} ">
-          Username
-      </label>
-      <input type="text" class="formInput" id="{{ form.username.id_for_label }}"
-      name="{{ form.username.html_name }}"
-      {% if form.username.field.required %}required{% endif %}
-            class="form-control{% if form.username.errors %} is-invalid{% endif %}"
-            value="{% if form.username.value %}{{ form.username.value }}{% endif %}">
-      {% if form.username.errors %}
-      {% for err in form.username.errors %}
-        <span style = "color: red">{{ err }}</span><br>
-      {% endfor %}
-      {% endif %}
 
-      <label for="{{ form.password.id_for_label }} ">
+      <label for="{{ form.username.id_for_label }} ">
+        Username
+       </label>
+       <input type="text" class="formInput" id="{{ form.username.id_for_label }}"
+              name="{{ form.username.html_name }}"
+              {% if form.username.field.required %}required{% endif %}
+              class="form-control{% if form.usename.errors %} is-invalid{% endif %}"
+              value="{% if form.username.value %}{{ form.username.value }}{% endif %}">
+       {% for err in form.username.errors %}
+         <span style = "color: red">{{ err }}</span><br>
+       {% endfor %}
+       <label for="{{ form.password.id_for_label }} ">
         Password
-      </label>
-      <input type="password" class="formInput" id="{{ form.password.id_for_label }}"
-            name="{{ form.password.html_name }}"
-            {% if form.password1.field.required %}required{% endif %}
-            class="form-control{% if form.password.errors %} is-invalid{% endif %}"
-            value="{% if form.password.value %}{{ form.password.value }}{% endif %}">
-      {% for err in form.password1.errors %}
-        <span style = "color: red">{{ err }}</span><br>
-      {% endfor %}
+       </label>
+       <input type="password" class="formInput" id="{{ form.password.id_for_label }}"
+              name="{{ form.password.html_name }}"
+              {% if form.password.field.required %}required{% endif %}
+              class="form-control{% if form.password.errors %} is-invalid{% endif %}"
+              value="{% if form.password.value %}{{ form.password.value }}{% endif %}">
+       {% for err in form.password.errors %}
+         <span style = "color: red">{{ err }}</span><br>
+       {% endfor %}
+       {% if error %}
+       <span style = "color: red">{{ error }}</span><br>
+       {% endif %}
+
   <!--<input type="text" />
   <p style="text-align: left">password:</p>
   <input type="password" />

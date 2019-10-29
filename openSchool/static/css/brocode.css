@@ -27,6 +27,25 @@ html {
    
   
   }
+  #myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: black; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+  }
+  
+  #myBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+  }
   #home{
     background-image: url("../imgs/splash.jpg");  
     background-position: center;
@@ -201,6 +220,7 @@ html {
     grid-template-columns: 0.3fr 1.5fr 0.3fr;
     grid-template-areas: 
     "menu logo startLogin";
+    
   }
   .start {
     display: grid;
@@ -771,7 +791,88 @@ html {
   width: 150px;
   border-radius: 50%;
 }
+footer {
+  background-color: white;
+  padding: 2rem;
+  display: grid;
+  grid-template-rows: 0.3fr 1.5fr 0.1fr;
+  grid-template-columns: 1fr 1fr ;
+  grid-template-areas: 
+  " head head "
+  " contact social"
+  " copy copy";
+  margin: 0rem;
+  font-size: 1.5rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 99%;
+  height: fit-content;
+}
+.copy {
+  font-size: 0.5rem;
+  display: grid;
+  grid-area: copy ;
+}
+.contact {
+  display: grid;
+  grid-area: contact;
+  font-size: 1.2rem;
+  height: 12rem;
+  padding-left:1rem;
 
+}
+footer > p {
+  display: grid;
+  grid-area: head;
+  padding-left: 2rem;
+} 
+.contact > li > a {
+  position: absolute;
+  display: block;
+  padding: 1rem;
+  float: left;
+  font-size: 1.2rem;
+  color: black;
+}
+.social {
+  display: grid;
+  grid-area: social;
+  color: black;
+}
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+  height: 100%;
+  width: 50%;
+  padding:1rem;
+  margin: 0.3rem;
+}
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+  height: 100%;
+  width: 50%;
+  padding:1rem;
+  margin: 0.3rem;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+  height: 100%;
+  width: 50%;
+  padding:1rem;
+  margin: 0.3rem;
+}
+.fa-github {
+  background: black;
+  color: white;
+  height: 100%;
+  width: 50%;
+  padding:1rem;
+  margin: 0.3rem;
+
+}
 @media (max-width: 425px) {
   .container-general{
     max-width: 400px;

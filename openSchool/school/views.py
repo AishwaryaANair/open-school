@@ -65,13 +65,14 @@ def loginView(request):
                 return render(request, 'login.html', args)
             elif instruct.isInstructor:
                 arg = {'instruct':instruct}
-                return render(request, 'instructor.html',arg)
+                return redirect('instructorDash')
             else:
-                
                 return render(request, 'courseprogress.html')
         else:
             # Return an 'invalid login' error message.
-            args = {'form': form}
+            form =  AuthenticationForm()
+            message = 'Username and Password do not match'
+            args = {'form': form, 'error': message }
             return render(request, 'login.html', args)
     else:
             # Return an 'invalid login' error message.
