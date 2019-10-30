@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>&lt;bro&gt;code</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/admin.css' %}" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+</head>
+<body style = "min-height: 100vh;">
+<nav> 
+
+  <ul class = 'start'>
+      <li><img src="./media/{{instruct.profile}}"></img><a href="{% url 'logout' %}">logout</a></li>  
+  </ul>
+
+  <ul class = 'logo'>
+  <li ><a href="#">&lt;bro&gt;code </a></li>
+  </ul>
+
+    <div class = "menu" id="menuToggle">
+      
+      <input type="checkbox"></input>
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+      <ul id="menu">
+        <a href="#"><li>add course</li></a><br>
+        <a href="{% url 'logout' %}"><li> logout</li></a><br>
+      <br><br><br>
+      </ul>
+    </div>
+</nav>
+
+<h2>welcome {{user.username}}</h2>
+  <div class="column" style="background-color:white;">
+    <a style = "font-size: 1.5rem" href = "{% url 'addCourse' %}">+ add a course</a>
+  </div>
+  {% for c in coursesCreated %}  
+  {% if c is not None %}
+    <div class="column" style="background-color:white;">
+        <p >Course: {{c.courseTitle}}<br>
+        Description: {{c.courseDescription}}<br>
+        Number of Hours: {{c.hours}}</p>
+      <a style = 'display: inline-block;' href="{% url 'courseedit' c.pk %}" class="button1" >edit course</a>
+      <a style = 'display: inline-block;' href="{% url 'viewcourse' c.pk %}" class="button1" >view course</a>
+    </div>
+  {% endif %}
+  {% endfor %}
+</body>
+</html>

@@ -1,0 +1,10 @@
+1,admin,logentry
+2,auth,permission
+3,auth,group
+4,auth,user
+5,contenttypes,contenttype
+6,sessions,session
+7,school,course
+8,school,weeks
+9,school,extenduser
+10,school,contact

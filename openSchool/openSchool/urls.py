@@ -19,11 +19,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from school.sitemaps import StaticViewSitemap
 from django.contrib.sitemaps.views import sitemap
+
 sitemaps = {
     'static': StaticViewSitemap
 }
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+
+    path('admin/', include('admin.site.urls')),
     path('sitemap.xml',sitemap,{'sitemaps':sitemaps}),
     path('', include('school.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) 

@@ -34,6 +34,10 @@ urlpatterns = [
     path("coursecontent.html", views.coursecontent, name='coursecontent'), 
     path("certi.html", views.certi, name='certi'), 
 
+    #Admin Url
+
+    path
+
     #Logout Url
 
     path('', views.logoutRequest, name='logout'),
