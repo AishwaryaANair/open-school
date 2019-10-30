@@ -15,6 +15,9 @@ class ExtendUser(models.Model):
     isStudent = models.BooleanField('Student',default = False)
     isInstructor = models.BooleanField('Instructor',default = False)
 
+    def __str__(self):
+        return self.userKey.username
+
 class Course(models.Model):
     
     #Course model
@@ -27,6 +30,9 @@ class Course(models.Model):
 
     def get_absolute_url(self):
         return reverse('course', args=[str(self.pk)])
+    
+    def __str__(self):
+        return self.courseTitle
 
 class Weeks(models.Model):
 
@@ -37,6 +43,12 @@ class Weeks(models.Model):
     weekDesc = models.TextField(max_length = 200)
     #weekQuiz = models.ForeignKey('school.ModuleTest',on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.weekTitle
+
 class Contact(models.Model):
     email = models.CharField(max_length = 100)
     comments = models.TextField(max_length = 500)
+
+    def __str__(self):
+        return self.email

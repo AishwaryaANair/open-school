@@ -1,4 +1,4 @@
-from django.contrib import admin 
+
 from django.urls import path 
 from django.conf import settings 
 from django.conf.urls.static import static
@@ -16,6 +16,7 @@ urlpatterns = [
     path('signupnext.html', views.SignUpNext, name='SignUpNext'),
 
     #Instructor Urls
+
     path('instructor.html', views.instructorDash, name='instructorDash'),
     path('addcourse.html',views.courseAdd, name = 'addCourse'),
     path('courseedit.html?courseUID=<int:courseUID>', views.courseEdit, name = 'courseedit'),
@@ -24,7 +25,7 @@ urlpatterns = [
     path('courseview.html?courseUID=<int:courseUID>', views.courseView, name = 'viewcourse'),
     path('updatedcourse?courseID=<int:courseID>', views.updatedView, name = 'updatedCourse'),
     path('course?courseUID=<int:courseUID>', views.course, name = 'course'),
-   
+    
     #Learner Urls
     
     path("learner.html", views.learner, name="learner"),
@@ -34,9 +35,6 @@ urlpatterns = [
     path("coursecontent.html", views.coursecontent, name='coursecontent'), 
     path("certi.html", views.certi, name='certi'), 
 
-    #Admin Url
-
-    path
 
     #Logout Url
 

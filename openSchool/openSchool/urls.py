@@ -25,9 +25,8 @@ sitemaps = {
 }
 
 urlpatterns = [
-
-    path('admin/', include('admin.site.urls')),
+    path('admin/',admin.site.urls),
     path('sitemap.xml',sitemap,{'sitemaps':sitemaps}),
     path('', include('school.urls')),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) 
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

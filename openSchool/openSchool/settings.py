@@ -32,13 +32,14 @@ ALLOWED_HOSTS = ['127.0.0.1','d0d34919.ngrok.io']
 
 INSTALLED_APPS = [
     'school',
-    'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.admin',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
+    
 ]
 
 MIDDLEWARE = [
