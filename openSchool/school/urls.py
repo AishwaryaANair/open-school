@@ -23,7 +23,8 @@ urlpatterns = [
     path('editweekcontent.html?weekUID=<int:weekUID>', views.editWeekContent, name = 'weekedit'),
     path('courseview.html?courseUID=<int:courseUID>', views.courseView, name = 'viewcourse'),
     path('updatedcourse?courseID=<int:courseID>', views.updatedView, name = 'updatedCourse'),
-    
+    path('course?courseUID=<int:courseUID>', views.course, name = 'course'),
+   
     #Learner Urls
     
     path("learner.html", views.learner, name="learner"),

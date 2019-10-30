@@ -25,7 +25,7 @@ SECRET_KEY = 'd(2+5!f#aye6nznfjyumjn1w5b&0p7$z(@1nvp#q2xixa)qatk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','d0d34919.ngrok.io']
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sitemaps'
+    'django.contrib.sitemaps',
     'school',
 ]
 

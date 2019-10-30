@@ -25,6 +25,9 @@ class Course(models.Model):
     creator = models.ForeignKey('auth.User',on_delete=models.CASCADE,related_name='UserCreator')
     userMap = models.ManyToManyField('auth.User',related_name='LearnersEnrolled', null = True)
 
+    def get_absolute_url(self):
+        return reverse('course', args=[str(self.pk)])
+
 class Weeks(models.Model):
 
     #Weeks added

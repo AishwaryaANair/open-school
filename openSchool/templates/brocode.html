@@ -34,7 +34,7 @@
           <a href="#course"><li>courses</li></a><br>
           <a href="#help"><li>help</li></a><br>
           <a href="#about"><li> about us</li></a><br>
-          <a href="#"><li> contact us</li></a><br>
+          <a href="{% url 'contact' %}"><li> contact us</li></a><br>
         </ul>
         </div>
       </nav>
@@ -68,9 +68,9 @@
           {% for c in course %}
             {% if c is not None %}
               <div class = courseDescrpt>
-                    <div class = "courseTitle">{{c.courseTitle}}</div>
+                    <p class = "courseTitle">{{c.courseTitle}}</p>
                     <ul class = "desc">
-                      <li style="word-wrap: break-word; width: 100%; height: 4rem;">{{c.courseDescription}}</li>
+                      <li style="word-wrap: break-word; width: 100%; max-height: 4rem;">{{c.courseDescription}}</li>
                     </ul>
                     <a href = "{% url 'login' %}" class="button button3">Learn More</a> 
               </div>

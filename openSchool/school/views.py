@@ -204,6 +204,10 @@ def addWeekContent(request, courseUID):
         return render(request, 'addweekcontent.html',args)
     #, {'newWeek':weeksCreated,'course': courseName})
 
+def course(request, courseUID):
+    item = get_object_or_404(Course, pk = courseUID)
+    return render(request, 'instructor.html',{'course':item})
+
 
 @login_required()
 def courseAdd(request):
