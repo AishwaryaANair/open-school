@@ -237,6 +237,19 @@
       position: relative;
       margin-top: 35px;
 }
+.column {
+  border-radius: 35px;
+  border: none;
+  display: block;
+  margin: 1rem;
+  padding: 1rem;
+  width: 95%;
+  height: fit-content;
+  text-align: center;
+  font-family: 'Raleway', serif;
+  font-weight: bold;
+  position: relative;
+}
   .column3{
      border-radius: 35px;
       border: none;

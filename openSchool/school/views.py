@@ -257,9 +257,11 @@ def logoutRequest(request):
 
 @login_required()
 def learner(request):
-    data = Course.object.all()
-    return render(request,"learner.html",{'data': data})
-
+    course = Course.objects.all()
+    args = {'course':course}
+    return render(request,'learner.html',args)
+	
+	
 def courseprogress(request):
     #Check Progress Tab
     title = Course.object.all()
@@ -274,9 +276,13 @@ def coursecontent(request):
     weekTitle=Weeks()
     return render(request,"coursecontent.html")
 
-def coursedetails(request):
+def coursedetails(request,courseUID):
     #Check Progress Tab
-    return render(request,"coursedetails.html")
+    course = get_object_or_404(Course, pk = courseUID)
+    weeksview = Weeks.objects.filter(courseDet = course)
+    return render(request, "coursedetails.html", {'newWeek':weeksview, 'course': course})
+
+  
 
 def certi(request):
     #Check Progress Tab

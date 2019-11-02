@@ -31,7 +31,7 @@ urlpatterns = [
     path("learner.html", views.learner, name="learner"),
     path("courseprogress.html", views.courseprogress, name='courseprogress'),
     path("completedcourses.html", views.completedcourses, name='completedcourses'),
-    path("coursedetails.html", views.coursedetails, name='coursedetails'),
+    path('coursedetails.html?courseUID=<int:courseUID>', views.coursedetails, name='coursedetails'),
     path("coursecontent.html", views.coursecontent, name='coursecontent'), 
     path("certi.html", views.certi, name='certi'), 
 

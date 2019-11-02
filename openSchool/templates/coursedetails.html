@@ -38,37 +38,21 @@
 </nav>
 
 
-
+   
     <div class="column1" style="background-color:white;">
-        <p >course 1: </p>
+        <p >course: {{course.courseTitle }}</p>
 
     </div>
     
-    <div class="column2" style="background-color:white;">
-         <p><a href = "{% url 'coursecontent' %}">week 1</a></p>
-        </div>
-    </div>
-
-        <div class="column3" style="background-color:white;">
-        <p><a href = "{% url 'coursecontent' %}">week 2</a> </p>
-        </div>
-
-    <div class="column4" style="background-color:white;">
-       <p><a href = "{% url 'coursecontent' %}">week 3</a></p>
-      
-
-    </div>
-
-    <div class="column5" style="background-color:white;">
-       <p><a href = "{% url 'coursecontent' %}">week 4</a></p>
-    </div>
-
-    <div class="column6" style="background-color:white;">
-        <p><a href = "{% url 'coursecontent' %}">week 5</a></p>
-    </div>
-
+     
+             <div class="column2" style="background-color:white;">
+            <p><a href = "{% url 'coursecontent' %}">week 1{{week.weekTitle}}:</a></p>
+            </div>
+            
+    
+        
     <div class="column7" style="background-color:white;">
-        <p >Quiz<br><br> </p>
+        <p ><br><br> </p>
       <input type="button" class="button1" value="">
 
     </div>

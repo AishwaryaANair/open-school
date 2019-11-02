@@ -5,6 +5,7 @@ from django.contrib import auth
 from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.db.models.signals import post_save
+
 # Create your models here.
 
 class ExtendUser(models.Model):
@@ -27,6 +28,8 @@ class Course(models.Model):
     hours = models.IntegerField(default = 112)
     creator = models.ForeignKey('auth.User',on_delete=models.CASCADE,related_name='UserCreator')
     userMap = models.ManyToManyField('auth.User',related_name='LearnersEnrolled', null = True)
+
+    objects = models.Manager()    
 
     def get_absolute_url(self):
         return reverse('course', args=[str(self.pk)])

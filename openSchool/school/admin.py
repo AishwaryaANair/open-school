@@ -13,4 +13,3 @@ admin.site.register(Course,CourseAdmin)
 admin.site.register(Weeks)
 admin.site.register(Contact)
 admin.site.register(ExtendUser)
-

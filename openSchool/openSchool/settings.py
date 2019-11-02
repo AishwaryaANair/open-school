@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['127.0.0.1','d0d34919.ngrok.io']
 # Application definition
 
 INSTALLED_APPS = [
-    'school',
+    'school' ,
     'django.contrib.auth',
     'django.contrib.admin',
     'django.contrib.contenttypes',
@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'openSchool',
         'USER' : 'postgres',
-        'PASSWORD':'T@ke@S@dS0ng',
+        'PASSWORD':'shivani',
         'HOST' : 'localhost',
         'PORT' : '5432',
     }
