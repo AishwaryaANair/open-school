@@ -108,14 +108,6 @@ def SignUpNext(request):
         args['form'] = form
         return render(request, 'signupnext.html', args)
 
-#Interests Page
-
-def SignUpLast(request):
-    return render(request,'signlast.html')
-
-#Instructor Last Page
-def SignInLast(request):
-    return render(request,'signlastinstruct.html')
 
 @login_required()
 def instructorDash(request):
