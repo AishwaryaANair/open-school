@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponse
 from django.contrib.auth import login, logout, authenticate
 from django.dispatch import receiver
 from django.db.models.signals import post_save
@@ -108,6 +108,14 @@ def SignUpNext(request):
         args['form'] = form
         return render(request, 'signupnext.html', args)
 
+#Interests Page
+
+def SignUpLast(request):
+    return render(request,'signlast.html')
+
+#Instructor Last Page
+def SignInLast(request):
+    return render(request,'signlastinstruct.html')
 
 @login_required()
 def instructorDash(request):
@@ -256,24 +264,25 @@ def learner(request):
 	
 def courseprogress(request):
     #Check Progress Tab
-    title = Course.object.all()
-    return render(request,"courseprogress.html",{'title':title})
-
+    course = Course.objects.filter(userMap = request.user)
+    return render(request,"courseprogress.html",{'course':course})
+      
 def completedcourses(request):
     #Check Progress Tab
     return render(request,"completedcourses.html")
-
-def coursecontent(request):
+   
+def coursecontent(request,weekUID):
     #Check Progress Tab
-    weekTitle=Weeks()
-    return render(request,"coursecontent.html")
+    newWeek =  Weeks.objects.get(pk = weekUID)
+    course = Course.objects.get(pk = newWeek.courseDet.pk)
+    return render(request,"coursecontent.html",{'newWeek':newWeek, 'course':course })
 
-def coursedetails(request,courseUID):
+
+def coursedetails(request,courseID):
     #Check Progress Tab
-    course = get_object_or_404(Course, pk = courseUID)
-    weeksview = Weeks.objects.filter(courseDet = course)
-    return render(request, "coursedetails.html", {'newWeek':weeksview, 'course': course})
-
+    course = Course.objects.get(pk=courseID)
+    newWeek = Weeks.objects.filter(courseDet = course)
+    return render(request, 'coursedetails.html', { 'newWeek': newWeek ,'course': course})
   
 
 def certi(request):
