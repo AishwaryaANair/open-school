@@ -1,0 +1,376 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family:'Raleway', serif;
+  background-image: url("../imgs/texture.jpg");
+  background-repeat:no-repeat;
+  height:100vh;
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
+  opacity:1;
+  
+}
+
+.flex-about{
+    display: flex;
+    color:white;
+  }
+  
+  .flex-about > div {
+    background-color: white;
+    color: black;
+    width: 1100px;
+    height: 450px;
+    margin-left:7rem;
+    line-height: 50px;
+    font-size: 22px;
+    border-radius: 2rem;
+  }
+  
+nav{
+  margin-left: 0rem;
+  margin-top:0rem;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 0.3fr 1.5fr 0.4fr;
+  grid-template-areas: 
+  "menu logo startLogin";
+  
+}
+.start {
+  display: grid;
+  grid-area: startLogin
+}
+
+h2{
+    color:black;
+    font-size: 1.4rem;
+    font-family: 'Raleway',serif;
+
+}
+
+h1{
+  color:black;
+  font-size: 1.8rem;
+  font-family: 'Raleway',serif;
+
+}
+
+img {
+  max-width: 2rem;
+  max-height: 2rem;
+  display: inline-block;
+}
+.menu {
+  display: grid;
+  grid-area: menu;
+}
+.logo{
+  margin-top: 0%;
+  padding-top: 0%;
+  display: grid;
+  grid-area: logo;
+  top:0;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:transparent;
+    opacity:1;
+  }
+  
+  li {
+    display:inline-block;
+    padding: 10px;
+  }
+  .logo li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      text-decoration: none;
+      font-size:1.2rem;
+      font-weight: bolder;
+  }
+  li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-size:1.2rem;
+    font-weight: bolder;
+    
+  }
+  
+  li a:hover {
+    color: rgb(182, 136, 52) ;
+    opacity:0.852;
+}
+   
+a
+{
+  text-decoration: none;
+  color: #232323;
+  transition: color 0.3s ease;
+}
+
+a:hover
+{
+  color: tomato;
+}
+
+#menuToggle
+{
+  display: inline-block;
+  position: relative;
+  top: 1rem;
+  left: 50px;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 40px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background:white;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 15rem;
+  margin: -100px 0 0 -60px;
+  padding: 1.5rem;
+  padding-top: 125px;
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 20px 0;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color:black;
+}
+#menu li:hover
+{
+  color:grey;
+}
+
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+
+h3{
+    color:black;
+    font-size: 1.5px;
+    text-align: center;
+    font-family: 'Raleway',serif;
+    margin-left: 200px;
+}
+form {
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+.column {
+    border-radius: 35px;
+    border: none;
+    display: block;
+    margin: 1rem;
+    padding: 1rem;
+    width: 95%;
+    height: fit-content;
+    text-align: center;
+    font-family: 'Raleway', serif;
+    font-weight: bold;
+    position: relative;
+}
+.nextButton {
+
+  font-family: "Raleway", sans-serif;
+  background:rgb(129, 49, 233);
+  border: 0;
+  color: #FFFFFF;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 0.8rem;
+  cursor: pointer;
+  border-radius: 30px;
+  box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.formInput{
+  font-family: "Raleway", sans-serif;
+  outline: 0;
+  display: block;
+  background: #f2f2f2;
+  width: 100%;
+  height: 1rem;
+  margin: 1rem 0rem;
+  position:relative;
+  border: 0;
+  padding: 0.9rem;
+  box-sizing: border-box;
+  font-size: 1rem;
+  border-radius: 30px;
+  box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+.button1 {
+
+    border-radius:2rem;
+    border: none;
+    width:10rem;
+    height:3.5rem;
+    padding:35px ;
+    background-color:rgb(98, 9, 150);
+    font-family: 'Raleway', serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color:white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.button1:hover {background-color: darkblue}
+.button1:focus {outline:0;}
+
+.button1:active {
+  background-color:darkblue;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.column1{
+  border-radius: 35px;
+  border: none;
+  float: left;
+  width: 80%;
+  padding-left: 0rem;
+  padding-right:910px;
+  height:90px; /* Should be removed. Only for demonstration */
+  margin-top: 25px;
+  margin-left:10px;
+  text-align:right;
+  font-family: 'Raleway', serif;
+  font-size: 30px;
+  font-weight: bolder;
+  margin-left: 200px;
+  position: relative;
+
+}
+
+.button2{
+  display:block;
+  width:50px;
+  height:50px;
+  line-height:50px;
+  border: 2px solid #f5f5f5;
+  border-radius: 50%;
+  color:#000000d0;
+  text-align:center;
+  text-decoration:none;
+  background: #e0e2df;
+  box-shadow: 0 0 3px gray;
+  font-size:45px;
+  font-weight:bold;
+  position: absolute;
+  cursor: pointer;
+  float: right;
+  left: 30px;
+  top: 20px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.5),
+            inset 5px 5px 8px rgba(0,0,0,0.5);
+}
+.button2:hover {
+  background: #ecececcb;
+}
+.button2:focus {outline:0;}
+.button2:active {
+  background: #e0e2df;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
