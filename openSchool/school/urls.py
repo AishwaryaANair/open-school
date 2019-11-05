@@ -29,12 +29,11 @@ urlpatterns = [
     #Learner Urls
     
     path("learner.html", views.learner, name="learner"),
-    path("courseprogress.html", views.courseprogress, name='courseprogress'),
+    path('courseprogress.html', views.courseprogress, name='courseprogress'),
     path("completedcourses.html", views.completedcourses, name='completedcourses'),
-    path('coursedetails.html?courseUID=<int:courseUID>', views.coursedetails, name='coursedetails'),
-    path("coursecontent.html", views.coursecontent, name='coursecontent'), 
+    path('coursedetails.html?courseID=<int:courseID>', views.coursedetails, name='coursedetails'),
+    path('coursecontent.html?weekUID=<int:weekUID>', views.coursecontent, name='coursecontent'), 
     path("certi.html", views.certi, name='certi'), 
-
 
     #Logout Url
 
