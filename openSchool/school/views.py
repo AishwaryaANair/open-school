@@ -60,14 +60,16 @@ def loginView(request):
         if user is not None:
             login(request, user)
             instruct = ExtendUser.objects.get(userKey = request.user)
+            Student = ExtendUser.objects.get(userKey = request.user)
             if instruct == None:
                 args = {'form': form}
                 return render(request, 'login.html', args)
             elif instruct.isInstructor:
                 arg = {'instruct':instruct}
                 return redirect('instructorDash')
-            else:
-                return render(request, 'courseprogress.html')
+            elif Student.isStudent:
+                arg = {'Student':Student}
+                return redirect('learner') 
         else:
             # Return an 'invalid login' error message.
             form =  AuthenticationForm()
@@ -262,11 +264,14 @@ def learner(request):
     return render(request,'learner.html',args)
 	
 	
-def courseprogress(request):
+def courseprogress(request,courseID):
     #Check Progress Tab
-    course = Course.objects.filter(userMap = request.user)
-    return render(request,"courseprogress.html",{'course':course})
-      
+    user = request.user
+    Student = ExtendUser.objects.get(userKey = request.user)
+    course = Course.objects.get(pk=courseID)
+    template = 'courseprogress.html'
+    return render(request, template, {'course':course,'user': user, 'Student':Student })
+
 def completedcourses(request):
     #Check Progress Tab
     return render(request,"completedcourses.html")
