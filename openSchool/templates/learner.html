@@ -15,7 +15,7 @@
   </ul>
 
   <ul class = 'logo'>
-  <li ><a href="home.html">&lt;bro&gt;code </a></li>
+  <li ><a href="{% url 'learner' %}">&lt;bro&gt;code </a></li>
   </ul>
 
     <div class = "menu" id="menuToggle">
@@ -37,15 +37,15 @@
 <section>
         <br>
         <br>
-        <h2 style="color:white" >OUR TOP PICKS:</h2> 
+        <h2 style="color:white; margin: 1rem; padding: 1rem;" >OUR TOP PICKS:</h2> 
          {% for c in course %}
          {% if c is not None %}
             <div class="flex-about">
-                <div>
+                <div style = "padding:2rem">
                   <h1 style ="text-align:left">COURSE: {{c.courseTitle}}</h1>
                   <h2 style ="text-align:left">Description: {{c.courseDescription}}</h2>
-                  <h2 style ="text-align:left">No.OF Hours: {{c.hours}}</h2>
-                  <button class="button button1"><a href = "{% url 'coursedetails' c.pk %}">ENROLL</a></button>  
+                  <h2 style ="text-align:left">Number of hours: {{c.hours}}</h2>
+                  <button style = "height: 2rem;" class="button button1"><a style = "color:white;" href = "{% url 'coursedetails' c.pk %}">ENROLL</a></button>  
                 </div>
             </div>
         <br>

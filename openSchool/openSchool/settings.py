@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'openSchool',
         'USER' : 'postgres',
-        'PASSWORD':'shivani',
+        'PASSWORD':'T@ke@S@dS0ng',
         'HOST' : 'localhost',
         'PORT' : '5432',
     }

@@ -7,7 +7,7 @@
 <link rel="stylesheet"  href="{% static 'css/coursecontent.css' %}"  type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 </head>
-<body>
+<body style = "min-height: 100vh; height: fit-content">
 <nav> 
 
  <ul class = 'start'>
@@ -15,7 +15,7 @@
   </ul>
 
   <ul class = 'logo'>
-  <li ><a href="home.html">&lt;bro&gt;code </a></li>
+  <li ><a href="{% url 'learner' %}">&lt;bro&gt;code </a></li>
   </ul>
 
     <div class = "menu" id="menuToggle">
