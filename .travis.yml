@@ -4,7 +4,7 @@ dist : xenial
 python:
     - "3.7.2"
 env:
-    - SECRET_KEY='TEST'
+    - SECRET_KEY='d(2+5!f#aye6nznfjyumjn1w5b&0p7$z(@1nvp#q2xixa)qatk'
 services:
    - postgresql
 install:
@@ -12,4 +12,5 @@ install:
 
 script:
     - python manage.py runserver   
+
 
